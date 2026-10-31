@@ -181,7 +181,7 @@ textarea.inp{min-height:170px;resize:vertical;font-size:17px;font-weight:600;lin
 .review .it{background:#fff5f6;border-left:4px solid var(--red);border-radius:8px;padding:7px 10px;margin-bottom:6px;font-size:14px;font-weight:600}
 .review .it .passage{display:none}
 .review .it em{font-style:normal;color:#11692f;font-weight:900}
-.introFaces{display:flex;justify-content:center;gap:-10px;margin-bottom:8px}
+.introFaces{display:flex;justify-content:center;align-items:flex-end;gap:14px;margin-bottom:8px}
 .introFaces img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 0 0 3px var(--yellow)}
 .toast{position:fixed;left:50%;top:18px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 18px;border-radius:14px;font-weight:800;z-index:60;box-shadow:0 6px 0 rgba(0,0,0,.3);display:flex;gap:10px;align-items:center;animation:pop .3s;max-width:92vw}
 .toast img{width:40px;height:40px;border-radius:50%;object-fit:cover}
@@ -216,6 +216,12 @@ textarea.inp{min-height:170px;resize:vertical;font-size:17px;font-weight:600;lin
   .hearts svg{width:15px;height:15px}
   .qtext{font-size:18px}
 }
+.ctx{background:#eef6ff;border:2px solid #b9d6ff;border-radius:14px;padding:10px 14px 11px;margin:0 0 10px;font-size:17px;font-weight:700;line-height:1.45;color:#1d3f8f}
+.ctx span{display:block;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;color:#3d7bff;margin-bottom:2px}
+.mapHead .face.blk{display:flex;align-items:flex-end;justify-content:center;background:#ffcf33;overflow:hidden;padding-top:4px}
+.mapHead .face.blk svg{margin-bottom:-26px}
+.rain{animation:rain .6s linear infinite}
+@keyframes rain{from{transform:translate(0,-40px)}to{transform:translate(-10px,40px)}}
 
 </style>
 </head>
@@ -335,33 +341,33 @@ var LEVELS = [
 {id:'t4', title:'Thoát phòng Roblox', sub:'Tự luận – Dạng 1: Tập hợp', theme:'chase',
  intro:'Đạt bị nhốt trong căn phòng Roblox, có một gã khổng lồ đang đuổi theo! Mỗi câu đúng mở được một cánh cửa. Sai thì gã khổng lồ tiến lại gần hơn.',
  qs:[
- {q:'Bài 1: Viết tập hợp A các số tự nhiên nhỏ hơn 7 bằng cách liệt kê.', t:'set', a:'0;1;2;3;4;5;6',
+ {ctx:'Bài 1: Viết tập hợp A các số tự nhiên nhỏ hơn 7 theo cách liệt kê, rồi điền kí hiệu (∈ hoặc ∉) vào ô trống.', q:'a) Viết tập hợp A bằng cách liệt kê các phần tử.', t:'set', a:'0;1;2;3;4;5;6',
   h:['Số tự nhiên bắt đầu từ <b>0</b>.','"Nhỏ hơn 7" thì không lấy số 7.','Gõ các số cách nhau bằng dấu chấm phẩy. Ví dụ: 0; 1; 2; ...']},
- {q:'Bài 1 (tiếp): Với A = {0; 1; 2; 3; 4; 5; 6}, chọn kí hiệu đúng cho mỗi ô:', t:'pick', rows:[['2 … A',['∈','∉'],0],['10 … A',['∈','∉'],1],['7 … A',['∈','∉'],1],['0 … A',['∈','∉'],0],['17 … A',['∈','∉'],1]],
+ {ctx:'Bài 1: Viết tập hợp A các số tự nhiên nhỏ hơn 7 theo cách liệt kê, rồi điền kí hiệu (∈ hoặc ∉) vào ô trống.', q:'b) Ta có A = {0; 1; 2; 3; 4; 5; 6}. Chọn kí hiệu đúng cho mỗi ô:', t:'pick', rows:[['2 … A',['∈','∉'],0],['10 … A',['∈','∉'],1],['7 … A',['∈','∉'],1],['0 … A',['∈','∉'],0],['17 … A',['∈','∉'],1]],
   h:['∈ là "thuộc": số đó có trong A. ∉ là "không thuộc".','A chỉ có các số từ 0 đến 6. Số nào lớn hơn 6 thì không thuộc A.']},
- {q:'Bài 2: Viết tập hợp B các số tự nhiên lớn hơn 6 và nhỏ hơn 11 bằng cách liệt kê.', t:'set', a:'7;8;9;10',
+ {ctx:'Bài 2: Viết tập hợp B các số tự nhiên lớn hơn 6 và nhỏ hơn 11 bằng hai cách, rồi điền kí hiệu vào ô trống.', q:'a) Cách 1 – liệt kê các phần tử của B.', t:'set', a:'7;8;9;10',
   h:['Không lấy 6 và không lấy 11.','Các số ở giữa 6 và 11: 7, 8, 9, 10.']},
- {q:'Bài 2 (tiếp): Cách viết chỉ ra tính chất đặc trưng của B là:', t:'mcq', o:['B = {x ∈ N | 6 < x < 11}','B = {x ∈ N | 6 ≤ x ≤ 11}','B = {x ∈ N | x < 11}','B = {x ∈ N | 7 < x < 10}'], a:0,
+ {ctx:'Bài 2: Viết tập hợp B các số tự nhiên lớn hơn 6 và nhỏ hơn 11 bằng hai cách, rồi điền kí hiệu vào ô trống.', q:'b) Cách 2 – chỉ ra tính chất đặc trưng. Cách viết đúng là:', t:'mcq', o:['B = {x ∈ N | 6 < x < 11}','B = {x ∈ N | 6 ≤ x ≤ 11}','B = {x ∈ N | x < 11}','B = {x ∈ N | 7 < x < 10}'], a:0,
   h:['"Lớn hơn 6" viết là 6 < x; "nhỏ hơn 11" viết là x < 11.','Không có dấu bằng vì không lấy 6 và 11.']},
- {q:'Bài 2 (tiếp): Với B = {7; 8; 9; 10}, chọn kí hiệu đúng:', t:'pick', rows:[['6 … B',['∈','∉'],1],['10 … B',['∈','∉'],0],['16 … B',['∈','∉'],1],['7 … B',['∈','∉'],0],['11 … B',['∈','∉'],1]],
+ {ctx:'Bài 2: Viết tập hợp B các số tự nhiên lớn hơn 6 và nhỏ hơn 11 bằng hai cách, rồi điền kí hiệu vào ô trống.', q:'c) Ta có B = {7; 8; 9; 10}. Chọn kí hiệu đúng cho mỗi ô:', t:'pick', rows:[['6 … B',['∈','∉'],1],['10 … B',['∈','∉'],0],['16 … B',['∈','∉'],1],['7 … B',['∈','∉'],0],['11 … B',['∈','∉'],1]],
   h:['Nhìn kĩ B = {7; 8; 9; 10}: số nào có mặt thì chọn ∈.']},
  {q:'Bài 3: Viết tập hợp P các số tự nhiên không lớn hơn 2021 và lớn hơn 2016 (liệt kê).', t:'set', a:'2017;2018;2019;2020;2021',
   h:['"Không lớn hơn 2021" là ≤ 2021, nên <b>có</b> lấy 2021.','"Lớn hơn 2016" là > 2016, nên <b>không</b> lấy 2016.','Bắt đầu từ 2017 đến 2021.']},
- {q:'Bài 4a: Tập hợp A các số tự nhiên khác 0 và nhỏ hơn 10.', t:'set', a:'1;2;3;4;5;6;7;8;9',
+ {ctx:'Bài 4: Bằng cách liệt kê các phần tử, hãy viết các tập hợp sau.', q:'a) Tập hợp A các số tự nhiên khác 0 và nhỏ hơn 10.', t:'set', a:'1;2;3;4;5;6;7;8;9',
   h:['"Khác 0" nên bỏ số 0.','Từ 1 đến 9.']},
- {q:'Bài 4b: Tập hợp B các số tự nhiên từ 13 đến 20.', t:'set', a:'13;14;15;16;17;18;19;20',
+ {ctx:'Bài 4: Bằng cách liệt kê các phần tử, hãy viết các tập hợp sau.', q:'b) Tập hợp B các số tự nhiên từ 13 đến 20.', t:'set', a:'13;14;15;16;17;18;19;20',
   h:['"Từ 13 đến 20" thì lấy cả 13 và 20.']},
- {q:'Bài 4c: Tập hợp C các chữ cái trong từ "MÙA THU" (không viết dấu).', t:'set', a:'M;U;A;T;H',
+ {ctx:'Bài 4: Bằng cách liệt kê các phần tử, hãy viết các tập hợp sau.', q:'c) Tập hợp C các chữ cái trong từ "MÙA THU" (không viết dấu).', t:'set', a:'M;U;A;T;H',
   h:['Viết từng chữ cái: M, U, A, T, H, U.','Chữ U xuất hiện 2 lần, nhưng trong tập hợp mỗi phần tử chỉ viết <b>một lần</b>.']},
- {q:'Bài 4d: Tập hợp các số tự nhiên chẵn lớn hơn 21 và nhỏ hơn 30.', t:'set', a:'22;24;26;28',
+ {ctx:'Bài 4: Bằng cách liệt kê các phần tử, hãy viết các tập hợp sau.', q:'d) Tập hợp D các số tự nhiên chẵn lớn hơn 21 và nhỏ hơn 30.', t:'set', a:'22;24;26;28',
   h:['Số chẵn tận cùng là 0, 2, 4, 6, 8.','Số chẵn đầu tiên lớn hơn 21 là 22. Không lấy 30.']},
- {q:'Bài 5: Cho A = {1; 2; 3}, B = {5; 7; 9}. Tập hợp nào gồm <b>1</b> phần tử thuộc A và <b>2</b> phần tử thuộc B?', t:'mcq', o:['{1; 2; 5}','{3; 5; 9}','{5; 7; 9}','{1; 2; 7; 9}'], a:1,
+ {ctx:'Bài 5: Cho hai tập hợp A = {1; 2; 3} và B = {5; 7; 9}.', q:'a) Tập hợp C gồm <b>1</b> phần tử thuộc A và <b>2</b> phần tử thuộc B. Tập hợp nào dưới đây có thể là C?', t:'mcq', o:['{1; 2; 5}','{3; 5; 9}','{5; 7; 9}','{1; 2; 7; 9}'], a:1,
   h:['Đếm xem mỗi tập có mấy số lấy từ A (1, 2, 3) và mấy số lấy từ B (5, 7, 9).','{3; 5; 9}: số 3 từ A, số 5 và 9 từ B. Đúng 1 và 2.']},
- {q:'Bài 5b: Tập hợp nào gồm 2 phần tử thuộc A và 2 phần tử thuộc B?', t:'mcq', o:['{1; 3; 7; 9}','{1; 2; 3; 5}','{2; 5; 7; 9}','{1; 5}'], a:0,
+ {ctx:'Bài 5: Cho hai tập hợp A = {1; 2; 3} và B = {5; 7; 9}.', q:'b) Tập hợp D gồm <b>2</b> phần tử thuộc A và <b>2</b> phần tử thuộc B. Tập hợp nào dưới đây có thể là D?', t:'mcq', o:['{1; 3; 7; 9}','{1; 2; 3; 5}','{2; 5; 7; 9}','{1; 5}'], a:0,
   h:['Cần 2 số trong {1; 2; 3} và 2 số trong {5; 7; 9}.']},
- {q:'Bài 6: Cho M = {a, b, c}, N = {x, y}. Tập hợp nào gồm 1 phần tử thuộc N và 2 phần tử thuộc M?', t:'mcq', o:['{x; y; a}','{x; a; c}','{a; b; c}','{y; a}'], a:1,
+ {ctx:'Bài 6: Cho hai tập hợp M = {a, b, c} và N = {x, y}.', q:'a) Tập hợp A gồm <b>1</b> phần tử thuộc N và <b>2</b> phần tử thuộc M. Tập hợp nào dưới đây có thể là A?', t:'mcq', o:['{x; y; a}','{x; a; c}','{a; b; c}','{y; a}'], a:1,
   h:['Lấy 1 chữ trong {x, y} và 2 chữ trong {a, b, c}.']},
- {q:'Bài 6d: Gọi A = {x; a; c} và B = {b; y}. Tập hợp E các <b>số tự nhiên</b> vừa thuộc A vừa thuộc B là:', t:'mcq', o:['E = {x; y}','E = {0}','E = ∅ (tập rỗng)','E = {a; b}'], a:2,
+ {ctx:'Bài 6: Cho hai tập hợp M = {a, b, c} và N = {x, y}. Ở câu a, b ta viết được A = {x; a; c} và B = {b; y}.', q:'d) Tập hợp E các <b>số tự nhiên</b> vừa thuộc A vừa thuộc B là:', t:'mcq', o:['E = {x; y}','E = {0}','E = ∅ (tập rỗng)','E = {a; b}'], a:2,
   h:['A và B chỉ chứa chữ cái, không chứa số tự nhiên nào.','Tập hợp không có phần tử nào gọi là tập rỗng, kí hiệu ∅.']},
  {q:'Bài 7: Liệt kê A = {x ∈ N | x = 4·a + 3, với a = 0; 1; 2; 3}.', t:'set', a:'3;7;11;15',
   h:['Thay lần lượt a = 0, 1, 2, 3 vào 4·a + 3.','a = 0: 4·0 + 3 = 3. a = 1: 4·1 + 3 = 7.','Làm tiếp với a = 2 và a = 3.']},
@@ -372,94 +378,94 @@ var LEVELS = [
 {id:'t5', title:'Leo núi lửa', sub:'Dạng 2: Thực hiện phép tính · So sánh lũy thừa', theme:'lava',
  intro:'Đạt phải vượt qua hồ dung nham của núi lửa! Tính đúng thì bậc đá nổi lên, tính sai thì bị trượt chân đấy.',
  qs:[
- {q:'Bài 1a: (1200 + 60) : 20 = ?', t:'in', a:['63'], h:['Trong ngoặc trước: 1200 + 60 = 1260.','1260 : 20 = 63.']},
- {q:'Bài 1b: 17 · 35 + 17 · 65 − 50 = ?', t:'in', a:['1650'], h:['Tính hợp lý: đưa 17 ra ngoài: 17 · (35 + 65).','35 + 65 = 100 → 17 · 100 = 1700.','1700 − 50 = 1650.']},
- {q:'Bài 1c: (2100 − 42) : 21 = ?', t:'in', a:['98'], h:['2100 − 42 = 2058.','2058 : 21 = 98.']},
- {q:'Bài 1d: 3 · 5^2 − 16 : 2^2 = ?', t:'in', a:['71'], h:['Thứ tự: lũy thừa → nhân, chia → cộng, trừ.','5^2 = 25; 2^2 = 4. Ta có 3 · 25 − 16 : 4.','75 − 4 = 71.']},
- {q:'Bài 1e: 100 − [75 − (7 − 2)^2] = ?', t:'in', a:['50'], h:['Ngoặc tròn trước: 7 − 2 = 5, 5^2 = 25.','Ngoặc vuông: 75 − 25 = 50.','100 − 50 = 50.']},
- {q:'Bài 1f: 80 − (4 · 5^2 − 3 · 2^3) = ?', t:'in', a:['4'], h:['5^2 = 25, 2^3 = 8.','Trong ngoặc: 4 · 25 − 3 · 8 = 100 − 24 = 76.','80 − 76 = 4.']},
- {q:'Bài 2a: 17 · 5 − 128 : 8 = ?', t:'in', a:['69'], h:['Nhân, chia trước: 17 · 5 = 85; 128 : 8 = 16.','85 − 16 = 69.']},
- {q:'Bài 2b: 150 − 114 : 19 + 7 · 12 = ?', t:'in', a:['228'], h:['114 : 19 = 6 và 7 · 12 = 84.','150 − 6 + 84 = 228.']},
- {q:'Bài 2c: 28 · 36 + 28 · 63 + 28 = ?', t:'in', a:['2800'], h:['28 chính là 28 · 1.','28 · (36 + 63 + 1) = 28 · 100.','= 2800.']},
- {q:'Bài 2d: 28 · 59 + 28 · 41 + 200 = ?', t:'in', a:['3000'], h:['28 · (59 + 41) = 28 · 100 = 2800.','2800 + 200 = 3000.']},
- {q:'Bài 2e: 33 · 28 + 33 · 72 − 150 = ?', t:'in', a:['3150'], h:['33 · (28 + 72) = 33 · 100 = 3300.','3300 − 150 = 3150.']},
- {q:'Bài 2 (câu cuối): 1207 − 1610 : 35 − 170 = ?', t:'in', a:['991'], h:['Chia trước: 1610 : 35 = 46.','1207 − 46 = 1161; 1161 − 170 = 991.']},
- {q:'Bài 3a: 456 − [9^3 − (8^2 − 3^2 · 7)^{2019}] : 2^3 = ?', t:'in', a:['365'], h:['Ngoặc nhỏ nhất: 8^2 = 64, 3^2 · 7 = 63 → 64 − 63 = 1.','1^{2019} = 1 (số 1 mũ mấy cũng bằng 1). 9^3 = 729 → 729 − 1 = 728.','728 : 2^3 = 728 : 8 = 91. Rồi 456 − 91 = 365.']},
- {q:'Bài 3b: 32 : {160 : [300 − (175 + 21 · 5)]} = ?', t:'in', a:['4'], h:['Ngoặc tròn: 21 · 5 = 105; 175 + 105 = 280.','Ngoặc vuông: 300 − 280 = 20. Ngoặc nhọn: 160 : 20 = 8.','32 : 8 = 4.']},
- {q:'Bài 3c: 205 − [1200 − (4^2 − 2 · 3)^3] : 40 = ?', t:'in', a:['200'], h:['4^2 − 2 · 3 = 16 − 6 = 10; 10^3 = 1000.','1200 − 1000 = 200; 200 : 40 = 5.','205 − 5 = 200.']},
- {q:'Bài 3d: 4 · {3^2 · [(5^2 + 2^3) : 11] − 26} + 2002 = ?', t:'in', a:['2006'], h:['5^2 + 2^3 = 25 + 8 = 33; 33 : 11 = 3.','3^2 · 3 = 27; 27 − 26 = 1.','4 · 1 + 2002 = 2006.']},
- {q:'Bài 9: So sánh từng cặp lũy thừa, chọn dấu đúng:', t:'pick', rows:[['2^3 … 3^2',['<','=','>'],0],['2^5 … 5^2',['<','=','>'],2],['2^4 … 4^2',['<','=','>'],1],['2^5 … 100',['<','=','>'],0]],
+ {ctx:'Bài 1: Thực hiện phép tính (tính hợp lý nếu có thể).', q:'a) (1200 + 60) : 20 = ?', t:'in', a:['63'], h:['Trong ngoặc trước: 1200 + 60 = 1260.','1260 : 20 = 63.']},
+ {ctx:'Bài 1: Thực hiện phép tính (tính hợp lý nếu có thể).', q:'b) 17 · 35 + 17 · 65 − 50 = ?', t:'in', a:['1650'], h:['Tính hợp lý: đưa 17 ra ngoài: 17 · (35 + 65).','35 + 65 = 100 → 17 · 100 = 1700.','1700 − 50 = 1650.']},
+ {ctx:'Bài 1: Thực hiện phép tính (tính hợp lý nếu có thể).', q:'c) (2100 − 42) : 21 = ?', t:'in', a:['98'], h:['2100 − 42 = 2058.','2058 : 21 = 98.']},
+ {ctx:'Bài 1: Thực hiện phép tính (tính hợp lý nếu có thể).', q:'d) 3 · 5^2 − 16 : 2^2 = ?', t:'in', a:['71'], h:['Thứ tự: lũy thừa → nhân, chia → cộng, trừ.','5^2 = 25; 2^2 = 4. Ta có 3 · 25 − 16 : 4.','75 − 4 = 71.']},
+ {ctx:'Bài 1: Thực hiện phép tính (tính hợp lý nếu có thể).', q:'e) 100 − [75 − (7 − 2)^2] = ?', t:'in', a:['50'], h:['Ngoặc tròn trước: 7 − 2 = 5, 5^2 = 25.','Ngoặc vuông: 75 − 25 = 50.','100 − 50 = 50.']},
+ {ctx:'Bài 1: Thực hiện phép tính (tính hợp lý nếu có thể).', q:'f) 80 − (4 · 5^2 − 3 · 2^3) = ?', t:'in', a:['4'], h:['5^2 = 25, 2^3 = 8.','Trong ngoặc: 4 · 25 − 3 · 8 = 100 − 24 = 76.','80 − 76 = 4.']},
+ {ctx:'Bài 2: Thực hiện phép tính (tính hợp lý nếu có thể).', q:'a) 17 · 5 − 128 : 8 = ?', t:'in', a:['69'], h:['Nhân, chia trước: 17 · 5 = 85; 128 : 8 = 16.','85 − 16 = 69.']},
+ {ctx:'Bài 2: Thực hiện phép tính (tính hợp lý nếu có thể).', q:'b) 150 − 114 : 19 + 7 · 12 = ?', t:'in', a:['228'], h:['114 : 19 = 6 và 7 · 12 = 84.','150 − 6 + 84 = 228.']},
+ {ctx:'Bài 2: Thực hiện phép tính (tính hợp lý nếu có thể).', q:'c) 28 · 36 + 28 · 63 + 28 = ?', t:'in', a:['2800'], h:['28 chính là 28 · 1.','28 · (36 + 63 + 1) = 28 · 100.','= 2800.']},
+ {ctx:'Bài 2: Thực hiện phép tính (tính hợp lý nếu có thể).', q:'d) 28 · 59 + 28 · 41 + 200 = ?', t:'in', a:['3000'], h:['28 · (59 + 41) = 28 · 100 = 2800.','2800 + 200 = 3000.']},
+ {ctx:'Bài 2: Thực hiện phép tính (tính hợp lý nếu có thể).', q:'e) 33 · 28 + 33 · 72 − 150 = ?', t:'in', a:['3150'], h:['33 · (28 + 72) = 33 · 100 = 3300.','3300 − 150 = 3150.']},
+ {ctx:'Bài 2: Thực hiện phép tính (tính hợp lý nếu có thể).', q:'e) 1207 − 1610 : 35 − 170 = ?', t:'in', a:['991'], h:['Chia trước: 1610 : 35 = 46.','1207 − 46 = 1161; 1161 − 170 = 991.']},
+ {ctx:'Bài 3: Thực hiện phép tính.', q:'a) 456 − [9^3 − (8^2 − 3^2 · 7)^{2019}] : 2^3 = ?', t:'in', a:['365'], h:['Ngoặc nhỏ nhất: 8^2 = 64, 3^2 · 7 = 63 → 64 − 63 = 1.','1^{2019} = 1 (số 1 mũ mấy cũng bằng 1). 9^3 = 729 → 729 − 1 = 728.','728 : 2^3 = 728 : 8 = 91. Rồi 456 − 91 = 365.']},
+ {ctx:'Bài 3: Thực hiện phép tính.', q:'b) 32 : {160 : [300 − (175 + 21 · 5)]} = ?', t:'in', a:['4'], h:['Ngoặc tròn: 21 · 5 = 105; 175 + 105 = 280.','Ngoặc vuông: 300 − 280 = 20. Ngoặc nhọn: 160 : 20 = 8.','32 : 8 = 4.']},
+ {ctx:'Bài 3: Thực hiện phép tính.', q:'c) 205 − [1200 − (4^2 − 2 · 3)^3] : 40 = ?', t:'in', a:['200'], h:['4^2 − 2 · 3 = 16 − 6 = 10; 10^3 = 1000.','1200 − 1000 = 200; 200 : 40 = 5.','205 − 5 = 200.']},
+ {ctx:'Bài 3: Thực hiện phép tính.', q:'d) 4 · {3^2 · [(5^2 + 2^3) : 11] − 26} + 2002 = ?', t:'in', a:['2006'], h:['5^2 + 2^3 = 25 + 8 = 33; 33 : 11 = 3.','3^2 · 3 = 27; 27 − 26 = 1.','4 · 1 + 2002 = 2006.']},
+ {ctx:'Bài 9: So sánh các lũy thừa sau.', q:'a – d) Chọn dấu đúng (<, =, >) cho mỗi cặp:', t:'pick', rows:[['2^3 … 3^2',['<','=','>'],0],['2^5 … 5^2',['<','=','>'],2],['2^4 … 4^2',['<','=','>'],1],['2^5 … 100',['<','=','>'],0]],
   h:['Tính ra số rồi so sánh.','2^3 = 8, 3^2 = 9. 2^5 = 32, 5^2 = 25.','2^4 = 16, 4^2 = 16.']},
- {q:'Bài 9 (tiếp): So sánh các lũy thừa lớn:', t:'pick', rows:[['4^{20} … 2^{40}',['<','=','>'],1],['3^{200} … 2^{300}',['<','=','>'],2],['5^{20} … 2^{50}',['<','=','>'],0],['3^{484} … 4^{363}',['<','=','>'],2]],
+ {ctx:'Bài 9: So sánh các lũy thừa sau.', q:'e – h) Chọn dấu đúng (<, =, >) cho mỗi cặp:', t:'pick', rows:[['4^{20} … 2^{40}',['<','=','>'],1],['3^{200} … 2^{300}',['<','=','>'],2],['5^{20} … 2^{50}',['<','=','>'],0],['3^{484} … 4^{363}',['<','=','>'],2]],
   h:['Mẹo: đưa về <b>cùng số mũ</b> hoặc cùng cơ số.','4^{20} = (2^2)^{20} = 2^{40}. 3^{200} = 9^{100}, 2^{300} = 8^{100}.','5^{20} = 25^{10}, 2^{50} = 32^{10}. 3^{484} = 81^{121}, 4^{363} = 64^{121}.']},
  {q:'Bài 10: Cho A = 1 + 3 + 3^2 + ... + 3^{2000}. Khi đó 2A + 1 = 3^n. Tìm n.', t:'in', a:['2001'], pre:'n = ',
   h:['Nhân A với 3: 3A = 3 + 3^2 + ... + 3^{2001}.','Lấy 3A − A, các số ở giữa triệt tiêu: 2A = 3^{2001} − 1.','Vậy 2A + 1 = 3^{2001}.']},
- {q:'Bài 18a: A = 1 + 3 + 3^2 + ... + 3^{300} bằng:', t:'mcq', o:['(3^{301} − 1) : 2','3^{301} − 1','(3^{300} − 1) : 2','(3^{301} + 1) : 2'], a:0,
+ {ctx:'Bài 18: Tính tổng.', q:'a) A = 1 + 3 + 3^2 + ... + 3^{300} bằng:', t:'mcq', o:['(3^{301} − 1) : 2','3^{301} − 1','(3^{300} − 1) : 2','(3^{301} + 1) : 2'], a:0,
   h:['3A = 3 + 3^2 + ... + 3^{301}.','3A − A = 2A = 3^{301} − 1.','A = (3^{301} − 1) : 2.']},
- {q:'Bài 18b: A = 3 + 3^2 + 3^3 + ... + 3^{400} bằng:', t:'mcq', o:['(3^{401} − 1) : 2','(3^{401} − 3) : 2','3^{401} − 3','(3^{400} − 3) : 2'], a:1,
+ {ctx:'Bài 18: Tính tổng.', q:'b) A = 3 + 3^2 + 3^3 + ... + 3^{400} bằng:', t:'mcq', o:['(3^{401} − 1) : 2','(3^{401} − 3) : 2','3^{401} − 3','(3^{400} − 3) : 2'], a:1,
   h:['3A = 3^2 + 3^3 + ... + 3^{401}.','2A = 3^{401} − 3 (lần này số đầu là 3 chứ không phải 1).']},
- {q:'Bài 19: So sánh:', t:'pick', rows:[['A = 1 + 2 + 2^2 + 2^3 + 2^4 … B = 2^5 − 1',['<','=','>'],1],['C = 3 + 3^2 + ... + 3^{100} … D = (3^{101} − 3) : 2',['<','=','>'],1]],
+ {ctx:'Bài 19: So sánh.', q:'Chọn dấu đúng (<, =, >) cho mỗi cặp:', t:'pick', rows:[['A = 1 + 2 + 2^2 + 2^3 + 2^4 … B = 2^5 − 1',['<','=','>'],1],['C = 3 + 3^2 + ... + 3^{100} … D = (3^{101} − 3) : 2',['<','=','>'],1]],
   h:['A = 1 + 2 + 4 + 8 + 16 = 31; B = 32 − 1 = 31.','Làm như Bài 18: 2C = 3^{101} − 3.']}
 ]},
 /* ================= 6 ================= */
-{id:'t6', title:'Rừng rậm bí ẩn', sub:'Dạng 2: Tìm x (Bài 4, 5)', theme:'chase', skin:'jungle',
- intro:'Trong rừng rậm, một con quái thú khổng lồ đuổi theo Đạt. Tìm đúng x để mở lối thoát nhé!',
+{id:'t6', title:'Vượt ngục', sub:'Dạng 2: Tìm x (Bài 4, 5)', theme:'chase', skin:'prison',
+ intro:'Đạt bị nhốt nhầm vào nhà tù! Một quản ngục khổng lồ đang đuổi theo. Tìm đúng x thì song sắt mở ra, sai thì quản ngục tiến lại gần hơn.',
  qs:[
- {q:'Bài 4a: x + 10 = 23', t:'in', a:['13'], pre:'x = ', h:['Muốn tìm số hạng, lấy tổng trừ số hạng kia.','x = 23 − 10.']},
- {q:'Bài 4b: 98 + x = 101', t:'in', a:['3'], pre:'x = ', h:['x = 101 − 98.']},
- {q:'Bài 4c: x : 23 = 3', t:'in', a:['69'], pre:'x = ', h:['Muốn tìm số bị chia, lấy thương nhân với số chia.','x = 3 · 23.']},
- {q:'Bài 4d: 196 : x = 14', t:'in', a:['14'], pre:'x = ', h:['Muốn tìm số chia, lấy số bị chia chia cho thương.','x = 196 : 14.']},
- {q:'Bài 4e: 78 · (x − 3) = 156', t:'in', a:['5'], pre:'x = ', h:['Coi (x − 3) là một số: (x − 3) = 156 : 78 = 2.','x = 2 + 3.']},
- {q:'Bài 4g: 8 · (x + 9) = 80', t:'in', a:['1'], pre:'x = ', h:['x + 9 = 80 : 8 = 10.','x = 10 − 9.']},
- {q:'Bài 4h: 48 : (x + 1) = 48', t:'in', a:['0'], pre:'x = ', h:['x + 1 = 48 : 48 = 1.','x = 1 − 1.']},
- {q:'Bài 4i: 2 · x − 10 = 6', t:'in', a:['8'], pre:'x = ', h:['2 · x = 6 + 10 = 16.','x = 16 : 2.']},
- {q:'Bài 4k: 165 : 3 − x = 18', t:'in', a:['37'], pre:'x = ', h:['Tính trước 165 : 3 = 55. Ta có 55 − x = 18.','x = 55 − 18.']},
- {q:'Bài 4l: 190 − 90 · x = 100', t:'in', a:['1'], pre:'x = ', h:['90 · x = 190 − 100 = 90.','x = 90 : 90.']},
- {q:'Bài 4m: 8 · (2x − 3) − 5 · (2x − 3) = 9', t:'in', a:['3'], pre:'x = ', h:['Gom lại: (8 − 5) · (2x − 3) = 9, tức là 3 · (2x − 3) = 9.','2x − 3 = 3 → 2x = 6.','x = 3.']},
- {q:'Bài 4o: 192 : 3 − 6 − 3 · (x − 2) = 37', t:'in', a:['9'], pre:'x = ', h:['192 : 3 = 64; 64 − 6 = 58. Ta có 58 − 3 · (x − 2) = 37.','3 · (x − 2) = 58 − 37 = 21 → x − 2 = 7.','x = 9.']},
- {q:'Bài 4p: 134 − (x − 15) = 126', t:'in', a:['23'], pre:'x = ', h:['x − 15 = 134 − 126 = 8.','x = 8 + 15.']},
- {q:'Bài 4q: 138 − 5 · (x + 7) = 18', t:'in', a:['17'], pre:'x = ', h:['5 · (x + 7) = 138 − 18 = 120.','x + 7 = 120 : 5 = 24.','x = 24 − 7.']},
- {q:'Bài 5a: x : 13 = 41', t:'in', a:['533'], pre:'x = ', h:['x = 41 · 13.']},
- {q:'Bài 5b: x − 25 : 5 = 25', t:'in', a:['30'], pre:'x = ', h:['Chú ý: chỉ có 25 : 5, làm phép chia trước: 25 : 5 = 5.','x − 5 = 25 → x = 30.']},
- {q:'Bài 5c: (x + 13) : 5 = 12', t:'in', a:['47'], pre:'x = ', h:['x + 13 = 12 · 5 = 60.','x = 60 − 13.']},
- {q:'Bài 5d: 124 + (118 − x) = 217', t:'in', a:['25'], pre:'x = ', h:['118 − x = 217 − 124 = 93.','x = 118 − 93.']},
- {q:'Bài 5e: 2019 · (x − 2020) = 0', t:'in', a:['2020'], pre:'x = ', h:['Tích bằng 0 khi một thừa số bằng 0. 2019 khác 0.','Vậy x − 2020 = 0.']},
- {q:'Bài 5f: 11x + 22x = 33 · 2', t:'in', a:['2'], pre:'x = ', h:['11x + 22x = 33x.','33x = 66 → x = 66 : 33.']},
- {q:'Bài 5g: 4^{2x+1} + 4^{2x} = 80', t:'in', a:['1'], pre:'x = ', h:['4^{2x+1} = 4^{2x} · 4. Gom: 4^{2x} · (4 + 1) = 80.','4^{2x} · 5 = 80 → 4^{2x} = 16 = 4^2.','2x = 2 → x = 1.']},
- {q:'Bài 5h: (2x − 17) · 5^6 = 5^9', t:'in', a:['71'], pre:'x = ', h:['2x − 17 = 5^9 : 5^6 = 5^3 = 125.','2x = 125 + 17 = 142.','x = 71.']},
- {q:'Bài 5i: 20 + 5x = 5^5 : 5^3', t:'in', a:['1'], pre:'x = ', h:['5^5 : 5^3 = 5^2 = 25.','5x = 25 − 20 = 5 → x = 1.']}
+ {ctx:'Bài 4: Tìm x biết:', q:'a) x + 10 = 23', t:'in', a:['13'], pre:'x = ', h:['Muốn tìm số hạng, lấy tổng trừ số hạng kia.','x = 23 − 10.']},
+ {ctx:'Bài 4: Tìm x biết:', q:'b) 98 + x = 101', t:'in', a:['3'], pre:'x = ', h:['x = 101 − 98.']},
+ {ctx:'Bài 4: Tìm x biết:', q:'c) x : 23 = 3', t:'in', a:['69'], pre:'x = ', h:['Muốn tìm số bị chia, lấy thương nhân với số chia.','x = 3 · 23.']},
+ {ctx:'Bài 4: Tìm x biết:', q:'d) 196 : x = 14', t:'in', a:['14'], pre:'x = ', h:['Muốn tìm số chia, lấy số bị chia chia cho thương.','x = 196 : 14.']},
+ {ctx:'Bài 4: Tìm x biết:', q:'e) 78 · (x − 3) = 156', t:'in', a:['5'], pre:'x = ', h:['Coi (x − 3) là một số: (x − 3) = 156 : 78 = 2.','x = 2 + 3.']},
+ {ctx:'Bài 4: Tìm x biết:', q:'g) 8 · (x + 9) = 80', t:'in', a:['1'], pre:'x = ', h:['x + 9 = 80 : 8 = 10.','x = 10 − 9.']},
+ {ctx:'Bài 4: Tìm x biết:', q:'h) 48 : (x + 1) = 48', t:'in', a:['0'], pre:'x = ', h:['x + 1 = 48 : 48 = 1.','x = 1 − 1.']},
+ {ctx:'Bài 4: Tìm x biết:', q:'i) 2 · x − 10 = 6', t:'in', a:['8'], pre:'x = ', h:['2 · x = 6 + 10 = 16.','x = 16 : 2.']},
+ {ctx:'Bài 4: Tìm x biết:', q:'k) 165 : 3 − x = 18', t:'in', a:['37'], pre:'x = ', h:['Tính trước 165 : 3 = 55. Ta có 55 − x = 18.','x = 55 − 18.']},
+ {ctx:'Bài 4: Tìm x biết:', q:'l) 190 − 90 · x = 100', t:'in', a:['1'], pre:'x = ', h:['90 · x = 190 − 100 = 90.','x = 90 : 90.']},
+ {ctx:'Bài 4: Tìm x biết:', q:'m) 8 · (2x − 3) − 5 · (2x − 3) = 9', t:'in', a:['3'], pre:'x = ', h:['Gom lại: (8 − 5) · (2x − 3) = 9, tức là 3 · (2x − 3) = 9.','2x − 3 = 3 → 2x = 6.','x = 3.']},
+ {ctx:'Bài 4: Tìm x biết:', q:'o) 192 : 3 − 6 − 3 · (x − 2) = 37', t:'in', a:['9'], pre:'x = ', h:['192 : 3 = 64; 64 − 6 = 58. Ta có 58 − 3 · (x − 2) = 37.','3 · (x − 2) = 58 − 37 = 21 → x − 2 = 7.','x = 9.']},
+ {ctx:'Bài 4: Tìm x biết:', q:'p) 134 − (x − 15) = 126', t:'in', a:['23'], pre:'x = ', h:['x − 15 = 134 − 126 = 8.','x = 8 + 15.']},
+ {ctx:'Bài 4: Tìm x biết:', q:'q) 138 − 5 · (x + 7) = 18', t:'in', a:['17'], pre:'x = ', h:['5 · (x + 7) = 138 − 18 = 120.','x + 7 = 120 : 5 = 24.','x = 24 − 7.']},
+ {ctx:'Bài 5: Tìm x biết:', q:'a) x : 13 = 41', t:'in', a:['533'], pre:'x = ', h:['x = 41 · 13.']},
+ {ctx:'Bài 5: Tìm x biết:', q:'b) x − 25 : 5 = 25', t:'in', a:['30'], pre:'x = ', h:['Chú ý: chỉ có 25 : 5, làm phép chia trước: 25 : 5 = 5.','x − 5 = 25 → x = 30.']},
+ {ctx:'Bài 5: Tìm x biết:', q:'c) (x + 13) : 5 = 12', t:'in', a:['47'], pre:'x = ', h:['x + 13 = 12 · 5 = 60.','x = 60 − 13.']},
+ {ctx:'Bài 5: Tìm x biết:', q:'d) 124 + (118 − x) = 217', t:'in', a:['25'], pre:'x = ', h:['118 − x = 217 − 124 = 93.','x = 118 − 93.']},
+ {ctx:'Bài 5: Tìm x biết:', q:'e) 2019 · (x − 2020) = 0', t:'in', a:['2020'], pre:'x = ', h:['Tích bằng 0 khi một thừa số bằng 0. 2019 khác 0.','Vậy x − 2020 = 0.']},
+ {ctx:'Bài 5: Tìm x biết:', q:'f) 11x + 22x = 33 · 2', t:'in', a:['2'], pre:'x = ', h:['11x + 22x = 33x.','33x = 66 → x = 66 : 33.']},
+ {ctx:'Bài 5: Tìm x biết:', q:'g) 4^{2x+1} + 4^{2x} = 80', t:'in', a:['1'], pre:'x = ', h:['4^{2x+1} = 4^{2x} · 4. Gom: 4^{2x} · (4 + 1) = 80.','4^{2x} · 5 = 80 → 4^{2x} = 16 = 4^2.','2x = 2 → x = 1.']},
+ {ctx:'Bài 5: Tìm x biết:', q:'h) (2x − 17) · 5^6 = 5^9', t:'in', a:['71'], pre:'x = ', h:['2x − 17 = 5^9 : 5^6 = 5^3 = 125.','2x = 125 + 17 = 142.','x = 71.']},
+ {ctx:'Bài 5: Tìm x biết:', q:'i) 20 + 5x = 5^5 : 5^3', t:'in', a:['1'], pre:'x = ', h:['5^5 : 5^3 = 5^2 = 25.','5x = 25 − 20 = 5 → x = 1.']}
 ]},
 /* ================= 7 ================= */
-{id:'t7', title:'Mê cung lũy thừa', sub:'Dạng 2: Tìm x (Bài 6, 7, 8)', theme:'space', skin:'nebula',
- intro:'Một quái vật lũy thừa canh giữ cổng không gian. Bắn hạ nó bằng những đáp án đúng!',
+{id:'t7', title:'Obby lũy thừa', sub:'Dạng 2: Tìm x (Bài 6, 7, 8)', theme:'obby',
+ intro:'Màn Obby! Nhảy qua các bục màu lơ lửng trên trời để tới bục WIN. Trả lời sai là rơi xuống mây đấy, cờ xanh là điểm checkpoint.',
  qs:[
- {q:'Bài 6a: 2^x = 32', t:'in', a:['5'], pre:'x = ', h:['Viết 32 thành lũy thừa của 2: 2 · 2 · 2 · 2 · 2 = 32.','32 = 2^5.']},
- {q:'Bài 6b: (x − 6)^2 = 9 (x là số tự nhiên)', t:'in', a:['9'], pre:'x = ', h:['9 = 3^2, nên x − 6 = 3.','x = 3 + 6.']},
- {q:'Bài 6c: 3^{x+3} = 81', t:'in', a:['1'], pre:'x = ', h:['81 = 3^4.','x + 3 = 4.']},
- {q:'Bài 6d: 2^x · 16 = 1024', t:'in', a:['6'], pre:'x = ', h:['2^x = 1024 : 16 = 64.','64 = 2^6.']},
- {q:'Bài 6e: x^{17} = x. Tìm tất cả các số tự nhiên x.', t:'set', a:'0;1', h:['Số nào mũ 17 vẫn bằng chính nó?','0^{17} = 0 và 1^{17} = 1. Có 2 số. Nhập: 0; 1']},
- {q:'Bài 6f: (2x − 2)^3 = 8', t:'in', a:['2'], pre:'x = ', h:['8 = 2^3, nên 2x − 2 = 2.','2x = 4 → x = 2.']},
- {q:'Bài 6g: (x − 6)^2 = (x − 6)^3. Tìm tất cả x.', t:'set', a:'6;7', h:['Số nào mũ 2 bằng mũ 3? Chỉ có 0 và 1.','x − 6 = 0 hoặc x − 6 = 1. Nhập: 6; 7']},
- {q:'Bài 6h: 3 + 2^{x−1} = 24 − [4^2 − (2^2 − 1)]', t:'in', a:['4'], pre:'x = ', h:['Vế phải: 2^2 − 1 = 3; 4^2 − 3 = 13; 24 − 13 = 11.','3 + 2^{x−1} = 11 → 2^{x−1} = 8 = 2^3.','x − 1 = 3 → x = 4.']},
- {q:'Bài 7a: x^2 = 16', t:'in', a:['4'], pre:'x = ', h:['Số nào nhân với chính nó bằng 16?']},
- {q:'Bài 7b: x^3 = 27', t:'in', a:['3'], pre:'x = ', h:['27 = 3 · 3 · 3.']},
- {q:'Bài 7c: 2 · x^3 − 4 = 12', t:'in', a:['2'], pre:'x = ', h:['2 · x^3 = 16 → x^3 = 8.','8 = 2^3.']},
- {q:'Bài 7d: 5 · x^3 − 5 = 0', t:'in', a:['1'], pre:'x = ', h:['5 · x^3 = 5 → x^3 = 1.']},
- {q:'Bài 7e: (x + 1)^2 = 16', t:'in', a:['3'], pre:'x = ', h:['x + 1 = 4.']},
- {q:'Bài 7f: (x + 1)^3 = 27', t:'in', a:['2'], pre:'x = ', h:['x + 1 = 3.']},
- {q:'Bài 7g: (x − 1)^3 = 27', t:'in', a:['4'], pre:'x = ', h:['x − 1 = 3.']},
- {q:'Bài 7h: (2x − 1)^3 = 125', t:'in', a:['3'], pre:'x = ', h:['125 = 5^3 → 2x − 1 = 5.','2x = 6.']},
- {q:'Bài 8a: 3^x = 9^4 : 3', t:'in', a:['7'], pre:'x = ', h:['9 = 3^2 nên 9^4 = 3^8.','3^8 : 3 = 3^7.']},
- {q:'Bài 8b: 4^{x+1} = 16^4', t:'in', a:['7'], pre:'x = ', h:['16 = 4^2 nên 16^4 = 4^8.','x + 1 = 8.']},
- {q:'Bài 8c: (x^{54})^2 = 5^{108}', t:'in', a:['5'], pre:'x = ', h:['(x^{54})^2 = x^{108}.','x^{108} = 5^{108}.']},
- {q:'Bài 8d: 4^{x+2} · 4^5 = 16^5', t:'in', a:['3'], pre:'x = ', h:['Vế trái = 4^{x+7}. Vế phải 16^5 = 4^{10}.','x + 7 = 10.']},
- {q:'Bài 8f: 6^2 · 6^{x−1} = 36^6', t:'in', a:['11'], pre:'x = ', h:['Vế trái = 6^{x+1}. 36 = 6^2 nên 36^6 = 6^{12}.','x + 1 = 12.']},
- {q:'Bài 8g: 3^2 · 3^x = 3^5', t:'in', a:['3'], pre:'x = ', h:['3^{2+x} = 3^5 → 2 + x = 5.']},
- {q:'Bài 8h: (2^2 : 4) · 2^x = 4', t:'in', a:['2'], pre:'x = ', h:['2^2 : 4 = 4 : 4 = 1.','2^x = 4 = 2^2.']}
+ {ctx:'Bài 6: Tìm số tự nhiên x, biết:', q:'a) 2^x = 32', t:'in', a:['5'], pre:'x = ', h:['Viết 32 thành lũy thừa của 2: 2 · 2 · 2 · 2 · 2 = 32.','32 = 2^5.']},
+ {ctx:'Bài 6: Tìm số tự nhiên x, biết:', q:'b) (x − 6)^2 = 9 (x là số tự nhiên)', t:'in', a:['9'], pre:'x = ', h:['9 = 3^2, nên x − 6 = 3.','x = 3 + 6.']},
+ {ctx:'Bài 6: Tìm số tự nhiên x, biết:', q:'c) 3^{x+3} = 81', t:'in', a:['1'], pre:'x = ', h:['81 = 3^4.','x + 3 = 4.']},
+ {ctx:'Bài 6: Tìm số tự nhiên x, biết:', q:'d) 2^x · 16 = 1024', t:'in', a:['6'], pre:'x = ', h:['2^x = 1024 : 16 = 64.','64 = 2^6.']},
+ {ctx:'Bài 6: Tìm số tự nhiên x, biết:', q:'e) x^{17} = x. Tìm tất cả các số tự nhiên x.', t:'set', a:'0;1', h:['Số nào mũ 17 vẫn bằng chính nó?','0^{17} = 0 và 1^{17} = 1. Có 2 số. Nhập: 0; 1']},
+ {ctx:'Bài 6: Tìm số tự nhiên x, biết:', q:'f) (2x − 2)^3 = 8', t:'in', a:['2'], pre:'x = ', h:['8 = 2^3, nên 2x − 2 = 2.','2x = 4 → x = 2.']},
+ {ctx:'Bài 6: Tìm số tự nhiên x, biết:', q:'g) (x − 6)^2 = (x − 6)^3. Tìm tất cả x.', t:'set', a:'6;7', h:['Số nào mũ 2 bằng mũ 3? Chỉ có 0 và 1.','x − 6 = 0 hoặc x − 6 = 1. Nhập: 6; 7']},
+ {ctx:'Bài 6: Tìm số tự nhiên x, biết:', q:'h) 3 + 2^{x−1} = 24 − [4^2 − (2^2 − 1)]', t:'in', a:['4'], pre:'x = ', h:['Vế phải: 2^2 − 1 = 3; 4^2 − 3 = 13; 24 − 13 = 11.','3 + 2^{x−1} = 11 → 2^{x−1} = 8 = 2^3.','x − 1 = 3 → x = 4.']},
+ {ctx:'Bài 7: Tìm số tự nhiên x, biết:', q:'a) x^2 = 16', t:'in', a:['4'], pre:'x = ', h:['Số nào nhân với chính nó bằng 16?']},
+ {ctx:'Bài 7: Tìm số tự nhiên x, biết:', q:'b) x^3 = 27', t:'in', a:['3'], pre:'x = ', h:['27 = 3 · 3 · 3.']},
+ {ctx:'Bài 7: Tìm số tự nhiên x, biết:', q:'c) 2 · x^3 − 4 = 12', t:'in', a:['2'], pre:'x = ', h:['2 · x^3 = 16 → x^3 = 8.','8 = 2^3.']},
+ {ctx:'Bài 7: Tìm số tự nhiên x, biết:', q:'d) 5 · x^3 − 5 = 0', t:'in', a:['1'], pre:'x = ', h:['5 · x^3 = 5 → x^3 = 1.']},
+ {ctx:'Bài 7: Tìm số tự nhiên x, biết:', q:'e) (x + 1)^2 = 16', t:'in', a:['3'], pre:'x = ', h:['x + 1 = 4.']},
+ {ctx:'Bài 7: Tìm số tự nhiên x, biết:', q:'f) (x + 1)^3 = 27', t:'in', a:['2'], pre:'x = ', h:['x + 1 = 3.']},
+ {ctx:'Bài 7: Tìm số tự nhiên x, biết:', q:'g) (x − 1)^3 = 27', t:'in', a:['4'], pre:'x = ', h:['x − 1 = 3.']},
+ {ctx:'Bài 7: Tìm số tự nhiên x, biết:', q:'h) (2x − 1)^3 = 125', t:'in', a:['3'], pre:'x = ', h:['125 = 5^3 → 2x − 1 = 5.','2x = 6.']},
+ {ctx:'Bài 8: Tìm x biết:', q:'a) 3^x = 9^4 : 3', t:'in', a:['7'], pre:'x = ', h:['9 = 3^2 nên 9^4 = 3^8.','3^8 : 3 = 3^7.']},
+ {ctx:'Bài 8: Tìm x biết:', q:'b) 4^{x+1} = 16^4', t:'in', a:['7'], pre:'x = ', h:['16 = 4^2 nên 16^4 = 4^8.','x + 1 = 8.']},
+ {ctx:'Bài 8: Tìm x biết:', q:'c) (x^{54})^2 = 5^{108}', t:'in', a:['5'], pre:'x = ', h:['(x^{54})^2 = x^{108}.','x^{108} = 5^{108}.']},
+ {ctx:'Bài 8: Tìm x biết:', q:'d) 4^{x+2} · 4^5 = 16^5', t:'in', a:['3'], pre:'x = ', h:['Vế trái = 4^{x+7}. Vế phải 16^5 = 4^{10}.','x + 7 = 10.']},
+ {ctx:'Bài 8: Tìm x biết:', q:'f) 6^2 · 6^{x−1} = 36^6', t:'in', a:['11'], pre:'x = ', h:['Vế trái = 6^{x+1}. 36 = 6^2 nên 36^6 = 6^{12}.','x + 1 = 12.']},
+ {ctx:'Bài 8: Tìm x biết:', q:'g) 3^2 · 3^x = 3^5', t:'in', a:['3'], pre:'x = ', h:['3^{2+x} = 3^5 → 2 + x = 5.']},
+ {ctx:'Bài 8: Tìm x biết:', q:'h) (2^2 : 4) · 2^x = 4', t:'in', a:['2'], pre:'x = ', h:['2^2 : 4 = 4 : 4 = 1.','2^x = 4 = 2^2.']}
 ]},
 /* ================= 8 ================= */
-{id:'t8', title:'Kho báu cướp biển', sub:'Toán thực tế (Bài 20 – 25) · Dấu hiệu chia hết', theme:'coins', skin:'pirate',
- intro:'Rương vàng của cướp biển đang chờ Đạt! Giải các bài toán thực tế và chia hết để gom đủ vàng.',
+{id:'t8', title:'Tycoon nhà máy vàng', sub:'Toán thực tế (Bài 20 – 25) · Dấu hiệu chia hết', theme:'tycoon',
+ intro:'Đạt mở nhà máy riêng! Mỗi câu đúng mua được một phần mới: máy đúc vàng, băng chuyền, nhà, tháp... Xây xong là có tòa nhà ĐẠT TYCOON.',
  qs:[
  {q:'Bài 20: Bình được mua 9 quyển vở (4900 đồng/quyển), 5 bút bi (2900 đồng/cái) và 2 cục tẩy (5000 đồng/cục). Mẹ mua hết bao nhiêu tiền?', t:'in', a:['68600'], unit:'đồng',
   h:['Tiền vở: 9 · 4900 = 44 100. Tiền bút: 5 · 2900 = 14 500.','Tiền tẩy: 2 · 5000 = 10 000.','Cộng lại: 44 100 + 14 500 + 10 000.']},
@@ -467,24 +473,24 @@ var LEVELS = [
   h:['Khoai: 2 · 26 500 = 53 000. Gạo: 5 · 18 000 = 90 000. Chuối: 2 · 15 000 = 30 000.','Tổng: 53 000 + 90 000 + 30 000 = 173 000.','Còn lại: 200 000 − 173 000.']},
  {q:'Bài 22: Đánh số trang một cuốn sách phải viết 282 chữ số. Cuốn sách có bao nhiêu trang?', t:'in', a:['130'], unit:'trang',
   h:['Trang 1 → 9: 9 trang, mỗi trang 1 chữ số = 9 chữ số.','Trang 10 → 99: 90 trang × 2 = 180 chữ số. Tổng đến trang 99: 189 chữ số.','Còn 282 − 189 = 93 chữ số, mỗi trang 3 chữ số → 31 trang. 99 + 31 = 130.']},
- {q:'Bài 23: Đánh số trang một cuốn sách cần 2010 chữ số. Cuốn sách có bao nhiêu trang?', t:'in', a:['706'], unit:'trang',
+ {ctx:'Bài 23: Để đánh số trang một cuốn sách (bắt đầu từ trang 1) cần dùng tất cả 2010 chữ số.', q:'a) Cuốn sách có bao nhiêu trang?', t:'in', a:['706'], unit:'trang',
   h:['Đến trang 99 đã dùng 189 chữ số.','Còn 2010 − 189 = 1821 chữ số, mỗi trang 3 chữ số: 1821 : 3 = 607 trang.','99 + 607 = 706 trang.']},
- {q:'Bài 23 (tiếp): Chữ số thứ 2009 là chữ số nào?', t:'in', a:['0'], h:['Chữ số thứ 2010 là chữ số cuối cùng của trang 706, tức là số 6.','Đi lùi 1 chữ số: chữ số thứ 2009 là chữ số ở giữa của 706.']},
+ {ctx:'Bài 23: Để đánh số trang một cuốn sách (bắt đầu từ trang 1) cần dùng tất cả 2010 chữ số. Cuốn sách có 706 trang.', q:'b) Viết liền các số trang 1, 2, 3, ..., 706 thành một dãy chữ số. Chữ số thứ 2009 của dãy là chữ số nào?', t:'in', a:['0'], h:['Chữ số thứ 2010 là chữ số cuối cùng của trang 706, tức là số 6.','Đi lùi 1 chữ số: chữ số thứ 2009 là chữ số ở giữa của 706.']},
  {q:'Bài 24: Hình chữ nhật dài 16 cm, diện tích a cm² (a từ 220 đến 228). Chiều rộng là số tự nhiên. Tìm chiều rộng.', t:'in', a:['14'], unit:'cm',
   h:['Chiều rộng = a : 16, nên a phải chia hết cho 16.','Thử từ 220 đến 228: chỉ có 224 = 16 · 14.']},
  {q:'Bài 25: Căn hộ 105 m², trừ bếp và vệ sinh 30 m², phần còn lại lát gỗ: 18 m² gỗ loại 1 (350 000 đ/m²), phần còn lại gỗ loại 2 (170 000 đ/m²), công lát 30 000 đ/m². Tổng chi phí là:', t:'in', a:['18240000'], unit:'đồng',
   h:['Diện tích lát: 105 − 30 = 75 m². Gỗ loại 2: 75 − 18 = 57 m².','Biểu thức: 18 · 350 000 + 57 · 170 000 + 75 · 30 000.','= 6 300 000 + 9 690 000 + 2 250 000.']},
  {q:'Bài 25 (2): Lớp 6D có 40 bạn đi tham quan, chia đều chi phí. Có 4 bạn không đi được nên mỗi bạn còn lại phải đóng thêm 25 000 đồng. Tổng chi phí chuyến đi là:', t:'in', a:['9000000'], unit:'đồng',
   h:['Còn 40 − 4 = 36 bạn đi. Phần tiền của 4 bạn vắng chia cho 36 bạn, mỗi bạn thêm 25 000.','Tiền của 4 bạn vắng = 36 · 25 000 = 900 000 → mỗi bạn lúc đầu đóng 900 000 : 4 = 225 000.','Tổng chi phí: 225 000 · 40.']},
- {q:'Dạng 3 – Bài 1: Trong các số 213; 435; 680; 5319; 3240; 831, số nào chia hết cho 2 mà không chia hết cho 9?', t:'set', a:'680',
+ {ctx:'Dạng 3 – Bài 1: Cho các số 213; 435; 680; 5319; 3240; 831.', q:'a) Viết các số chia hết cho 2 mà không chia hết cho 9.', t:'set', a:'680',
   h:['Chia hết cho 2: tận cùng chẵn → 680, 3240.','3240 có tổng chữ số 9 → chia hết cho 9, loại.']},
- {q:'Bài 1b: Số nào chia hết cho cả 2 và 5?', t:'set', a:'680;3240', h:['Chia hết cho cả 2 và 5 thì tận cùng là chữ số 0.']},
- {q:'Bài 1c: Số nào chia hết cho 3 mà không chia hết cho 9?', t:'set', a:'213;435;831',
+ {ctx:'Dạng 3 – Bài 1: Cho các số 213; 435; 680; 5319; 3240; 831.', q:'b) Viết các số chia hết cho cả 2 và 5.', t:'set', a:'680;3240', h:['Chia hết cho cả 2 và 5 thì tận cùng là chữ số 0.']},
+ {ctx:'Dạng 3 – Bài 1: Cho các số 213; 435; 680; 5319; 3240; 831.', q:'c) Viết các số chia hết cho 3 mà không chia hết cho 9.', t:'set', a:'213;435;831',
   h:['Tổng chữ số: 213→6; 435→12; 680→14; 5319→18; 3240→9; 831→12.','Lấy tổng chia hết cho 3 nhưng không chia hết cho 9.']},
- {q:'Bài 1d: Số nào chia hết cho 5 mà không chia hết cho 2?', t:'set', a:'435', h:['Tận cùng là 5 (không phải 0).']},
- {q:'Bài 2: Dùng cả ba chữ số 7, 5, 0 ghép thành số có 3 chữ số chia hết cho cả 2 và 5. Viết tất cả các số đó.', t:'set', a:'750;570',
+ {ctx:'Dạng 3 – Bài 1: Cho các số 213; 435; 680; 5319; 3240; 831.', q:'d) Viết các số chia hết cho 5 mà không chia hết cho 2.', t:'set', a:'435', h:['Tận cùng là 5 (không phải 0).']},
+ {ctx:'Bài 2: Dùng cả ba chữ số 7, 5, 0 ghép thành số tự nhiên có 3 chữ số (mỗi chữ số dùng đúng một lần).', q:'a) Viết tất cả các số chia hết cho cả 2 và 5.', t:'set', a:'750;570',
   h:['Chia hết cho cả 2 và 5 → tận cùng là 0.','Hai chữ số còn lại 7 và 5 đổi chỗ được 2 cách.']},
- {q:'Bài 2b, c: Các số ghép từ 7, 5, 0 chia hết cho cả 2 và 3 (cũng chính là các số chia hết cho 2) là:', t:'set', a:'750;570',
+ {ctx:'Bài 2: Dùng cả ba chữ số 7, 5, 0 ghép thành số tự nhiên có 3 chữ số (mỗi chữ số dùng đúng một lần).', q:'b, c) Viết tất cả các số chia hết cho cả 2 và 3. (Đây cũng chính là các số chia hết cho 2.)', t:'set', a:'750;570',
   h:['7 + 5 + 0 = 12 chia hết cho 3, nên số nào ghép được cũng chia hết cho 3.','Chia hết cho 2: tận cùng phải là 0 (không thể tận cùng 5 hay 7). Số 0 không được đứng đầu.']},
  {q:'Bài 3: Áp dụng tính chất chia hết, chọn Có / Không:', t:'pick', rows:[['4·5·6·7·8 + 6·7·8·9 chia hết cho 7?',['Có','Không'],0],['4251 + 3030 + 12 chia hết cho 6?',['Có','Không'],1],['121 − 77 chia hết cho 11?',['Có','Không'],0],['119 − 52 chia hết cho 13?',['Có','Không'],1]],
   h:['Nếu mọi số hạng đều chia hết cho a thì tổng chia hết cho a.','Nếu chỉ <b>một</b> số hạng không chia hết cho a (các số còn lại chia hết) thì tổng không chia hết cho a.','4251 lẻ nên không chia hết cho 6. 52 = 13·4 nhưng 119 không chia hết cho 13.']},
@@ -492,7 +498,7 @@ var LEVELS = [
   h:['12, 15, 21 đều chia hết cho 3.','Muốn tổng chia hết cho 3 thì x cũng phải chia hết cho 3. (Ngược lại, x không chia hết cho 3 thì A không chia hết cho 3.)']},
  {q:'Bài 14: Thay dấu * bằng chữ số thích hợp:', t:'pick', rows:[['<o>1373*</o> chia hết cho 2 và 9',['0','2','4','6','8'],2],['<o>158*</o> chia hết cho 2 và 3',['0','2','4','6','8'],2],['<o>1475*</o> chia hết cho 2 và 5',['0','2','4','6','8'],0],['<o>754*1</o> chia hết cho 9',['0','1','3','6','9'],1]],
   h:['1+3+7+3 = 14. Cần 14 + * chia hết cho 9 → * = 4 (mà 4 là chẵn, tốt!).','1+5+8 = 14. * chẵn và 14 + * chia hết cho 3 → * = 4.','Chia hết cho 2 và 5 → tận cùng 0. 7+5+4+1 = 17 → * = 1 để được 18.']},
- {q:'Bài 14 (5): <o>5*301</o> chia hết cho 3 và cho 9. Dấu * có thể là những chữ số nào?', t:'set', a:'0;9',
+ {ctx:'Bài 14: Thay dấu * bằng một chữ số thích hợp.', q:'5) <o>5*301</o> chia hết cho 3 và cho 9. Dấu * có thể là những chữ số nào?', t:'set', a:'0;9',
   h:['5 + * + 3 + 0 + 1 = 9 + *.','9 + * chia hết cho 9 → * = 0 hoặc * = 9.']},
  {q:'Bài 15: Tìm điều kiện của x ∈ N:', t:'pick', rows:[['A = 4 + 6 + x chia hết cho 2',['x chẵn','x lẻ'],0],['B = 4 + 6 + x không chia hết cho 2',['x chẵn','x lẻ'],1],['C = 3 + 6 + x chia hết cho 3',['x ⋮ 3','x không ⋮ 3'],0],['K = 3 + 6 + x không chia hết cho 3',['x ⋮ 3','x không ⋮ 3'],1],['D = 5 + 10 + x chia hết cho 5',['x ⋮ 5','x không ⋮ 5'],0],['E = 5 + 10 + x không chia hết cho 5',['x ⋮ 5','x không ⋮ 5'],1]],
   h:['4 và 6 đều chẵn. 3 và 6 chia hết cho 3. 5 và 10 chia hết cho 5.','Tổng chia hết khi x cũng chia hết; không chia hết khi x không chia hết.']},
@@ -502,11 +508,11 @@ var LEVELS = [
   h:['Nhìn chữ số tận cùng: tận cùng 0 hoặc 5 thì chia hết cho 5.','128 và 2022 không chia hết cho 5. 2025^5 và 2020^4 đều chia hết cho 5.']},
  {q:'Bài 8: Tàu chở 1000 khách, mỗi toa 12 khoang, mỗi khoang 8 chỗ. Cần ít nhất mấy toa?', t:'in', a:['11'], unit:'toa',
   h:['Mỗi toa: 12 · 8 = 96 chỗ.','1000 : 96 = 10 dư 40. Còn 40 khách cần thêm 1 toa.']},
- {q:'Bài 9a: Để chứng tỏ A = 2 + 2^2 + 2^3 + ... + 2^{20} chia hết cho 3, ta nhóm 2 số hạng liên tiếp. Mỗi nhóm (2 + 2^2) bằng bao nhiêu?', t:'in', a:['6'],
+ {ctx:'Bài 9: Chứng tỏ các tổng sau chia hết cho số đã cho (bằng cách nhóm các số hạng).', q:'a) Để chứng tỏ A = 2 + 2^2 + 2^3 + ... + 2^{20} chia hết cho 3, ta nhóm 2 số hạng liên tiếp. Mỗi nhóm (2 + 2^2) bằng bao nhiêu?', t:'in', a:['6'],
   h:['2 + 2^2 = 2 + 4.','A = (2 + 2^2) + 2^2·(2 + 2^2) + ... Mỗi nhóm đều có thừa số 6, chia hết cho 3.']},
- {q:'Bài 9b: B = 1 + 3 + 3^2 + ... + 3^{99} chia hết cho 4. Ta nhóm mỗi nhóm mấy số hạng?', t:'mcq', o:['2 số hạng: (1 + 3) = 4','3 số hạng: (1 + 3 + 9) = 13','4 số hạng','Không cần nhóm'], a:0,
+ {ctx:'Bài 9: Chứng tỏ các tổng sau chia hết cho số đã cho (bằng cách nhóm các số hạng).', q:'b) B = 1 + 3 + 3^2 + ... + 3^{99} chia hết cho 4. Ta nhóm mỗi nhóm mấy số hạng?', t:'mcq', o:['2 số hạng: (1 + 3) = 4','3 số hạng: (1 + 3 + 9) = 13','4 số hạng','Không cần nhóm'], a:0,
   h:['B có 100 số hạng (từ 3^0 đến 3^{99}), chia đủ thành 50 nhóm 2 số.','1 + 3 = 4. Các nhóm sau là 3^2·(1 + 3), ... đều chia hết cho 4.']},
- {q:'Bài 9c: C = 1 + 4 + 4^2 + ... + 4^{59}. Để chứng tỏ C chia hết cho 21, ta nhóm:', t:'mcq', o:['2 số hạng: 1 + 4 = 5','3 số hạng: 1 + 4 + 16 = 21','4 số hạng','6 số hạng'], a:1,
+ {ctx:'Bài 9: Chứng tỏ các tổng sau chia hết cho số đã cho (bằng cách nhóm các số hạng).', q:'c) C = 1 + 4 + 4^2 + ... + 4^{59}. Để chứng tỏ C chia hết cho 21, ta nhóm:', t:'mcq', o:['2 số hạng: 1 + 4 = 5','3 số hạng: 1 + 4 + 16 = 21','4 số hạng','6 số hạng'], a:1,
   h:['C có 60 số hạng. 60 chia hết cho 2 và cho 3.','Nhóm 2 số được 1 + 4 = 5 (chứng tỏ C ⋮ 5). Nhóm 3 số được 1 + 4 + 16 = 21.']},
  {q:'Bài 10: A = 1 + 2 + 2^2 + ... + 2^{11} chia hết cho 3 vì nhóm thành các nhóm (1 + 2). A có bao nhiêu nhóm như vậy?', t:'in', a:['6'], unit:'nhóm',
   h:['A có 12 số hạng (từ 2^0 đến 2^{11}).','12 : 2 = 6 nhóm.']},
@@ -514,56 +520,56 @@ var LEVELS = [
   h:['Số bị chia = số chia · thương + số dư.','m = 13 · 4 + 12.']}
 ]},
 /* ================= 9 ================= */
-{id:'t9', title:'Trạm vũ trụ số nguyên tố', sub:'Dạng 4: Số nguyên tố · Ước và bội', theme:'river', skin:'ice',
- intro:'Đạt phải vượt qua hồ băng để đến trạm vũ trụ. Cẩn thận, băng mỏng lắm!',
+{id:'t9', title:'Sống sót qua thiên tai', sub:'Dạng 4: Số nguyên tố · Ước và bội', theme:'disaster',
+ intro:'Thiên thạch rơi, sét đánh! Đạt phải nhảy qua các khối đất để tới hầm trú ẩn. Trả lời sai là bị thiên tai tấn công.',
  qs:[
  {q:'Bài 1: Tổng (hiệu) sau là số nguyên tố hay hợp số?', t:'pick', rows:[['3·4·5 + 6·7',['Nguyên tố','Hợp số'],1],['15 + 3·40 + 8·9',['Nguyên tố','Hợp số'],1],['4253 + 1422',['Nguyên tố','Hợp số'],1],['5·6·7 + 8·9',['Nguyên tố','Hợp số'],1],['5·7·8·9·11 − 132',['Nguyên tố','Hợp số'],1],['2010 + 4149',['Nguyên tố','Hợp số'],1]],
   h:['Hợp số là số lớn hơn 1 có nhiều hơn 2 ước. Chỉ cần tìm được một ước khác 1 và chính nó.','3·4·5 + 6·7: cả hai số hạng đều chia hết cho 2 (hoặc 3). 15 + 3·40 + 8·9: đều chia hết cho 3.','4253 + 1422 = 5675 tận cùng 5. 2010 + 4149 = 6159 có tổng chữ số 21 → chia hết cho 3.']},
- {q:'Bài 2: Phân tích 420 ra thừa số nguyên tố:', t:'mcq', o:['2^2 · 3 · 5 · 7','2 · 3 · 7 · 10','4 · 3 · 5 · 7','2^2 · 3^2 · 5'], a:0,
+ {ctx:'Bài 2: Phân tích các số sau ra thừa số nguyên tố: 420, 60, 84, 285, 400, 120, 306.', q:'Số 420 = ?', t:'mcq', o:['2^2 · 3 · 5 · 7','2 · 3 · 7 · 10','4 · 3 · 5 · 7','2^2 · 3^2 · 5'], a:0,
   h:['Chia liên tiếp cho số nguyên tố nhỏ nhất: 420 : 2 = 210; 210 : 2 = 105.','105 : 3 = 35; 35 : 5 = 7.','420 = 2 · 2 · 3 · 5 · 7. Chú ý 4 và 10 không phải số nguyên tố.']},
- {q:'Phân tích 60 ra thừa số nguyên tố:', t:'mcq', o:['2 · 3 · 10','2^2 · 3 · 5','2^2 · 15','2 · 5 · 6'], a:1, h:['60 : 2 = 30; 30 : 2 = 15; 15 : 3 = 5.']},
- {q:'Phân tích 84 ra thừa số nguyên tố:', t:'mcq', o:['2^2 · 3 · 7','2 · 6 · 7','4 · 21','2^2 · 3^2'], a:0, h:['84 : 2 = 42; 42 : 2 = 21; 21 = 3 · 7.']},
- {q:'Phân tích 285 ra thừa số nguyên tố:', t:'mcq', o:['5 · 57','3 · 5 · 19','3 · 95','3^2 · 5 · 7'], a:1, h:['285 tận cùng 5 → 285 : 5 = 57.','57 = 3 · 19 (19 là số nguyên tố).']},
- {q:'Phân tích 400 ra thừa số nguyên tố:', t:'mcq', o:['2^4 · 5^2','2^3 · 5^2','4 · 100','2^4 · 25'], a:0, h:['400 = 4 · 100 = 2^2 · 2^2 · 5^2.','Gộp: 2^4 · 5^2.']},
- {q:'Phân tích 120 ra thừa số nguyên tố:', t:'mcq', o:['2^3 · 3 · 5','2^2 · 3 · 10','2^3 · 15','2 · 3 · 4 · 5'], a:0, h:['120 : 2 = 60; 60 : 2 = 30; 30 : 2 = 15; 15 = 3 · 5.']},
- {q:'Phân tích 306 ra thừa số nguyên tố:', t:'mcq', o:['2 · 3 · 51','2 · 3^2 · 17','2 · 9 · 17','3^2 · 34'], a:1, h:['306 : 2 = 153; 153 : 3 = 51; 51 : 3 = 17.','306 = 2 · 3 · 3 · 17.']},
- {q:'Bài 3: Liệt kê các ước của 18.', t:'set', a:'1;2;3;6;9;18', h:['Lấy 18 chia lần lượt cho 1, 2, 3, ... đến 18.','Ước đi theo cặp: 1·18, 2·9, 3·6.']},
- {q:'Bài 3 (tiếp): 15 = 3 · 5. Số 3 và số 5 có là ước của 15 không?', t:'mcq', o:['Có, cả hai đều là ước của 15','Chỉ 3 là ước','Chỉ 5 là ước','Không số nào'], a:0, h:['15 : 3 = 5 và 15 : 5 = 3, đều chia hết.']},
+ {ctx:'Bài 2: Phân tích các số sau ra thừa số nguyên tố: 420, 60, 84, 285, 400, 120, 306.', q:'Số 60 = ?', t:'mcq', o:['2 · 3 · 10','2^2 · 3 · 5','2^2 · 15','2 · 5 · 6'], a:1, h:['60 : 2 = 30; 30 : 2 = 15; 15 : 3 = 5.']},
+ {ctx:'Bài 2: Phân tích các số sau ra thừa số nguyên tố: 420, 60, 84, 285, 400, 120, 306.', q:'Số 84 = ?', t:'mcq', o:['2^2 · 3 · 7','2 · 6 · 7','4 · 21','2^2 · 3^2'], a:0, h:['84 : 2 = 42; 42 : 2 = 21; 21 = 3 · 7.']},
+ {ctx:'Bài 2: Phân tích các số sau ra thừa số nguyên tố: 420, 60, 84, 285, 400, 120, 306.', q:'Số 285 = ?', t:'mcq', o:['5 · 57','3 · 5 · 19','3 · 95','3^2 · 5 · 7'], a:1, h:['285 tận cùng 5 → 285 : 5 = 57.','57 = 3 · 19 (19 là số nguyên tố).']},
+ {ctx:'Bài 2: Phân tích các số sau ra thừa số nguyên tố: 420, 60, 84, 285, 400, 120, 306.', q:'Số 400 = ?', t:'mcq', o:['2^4 · 5^2','2^3 · 5^2','4 · 100','2^4 · 25'], a:0, h:['400 = 4 · 100 = 2^2 · 2^2 · 5^2.','Gộp: 2^4 · 5^2.']},
+ {ctx:'Bài 2: Phân tích các số sau ra thừa số nguyên tố: 420, 60, 84, 285, 400, 120, 306.', q:'Số 120 = ?', t:'mcq', o:['2^3 · 3 · 5','2^2 · 3 · 10','2^3 · 15','2 · 3 · 4 · 5'], a:0, h:['120 : 2 = 60; 60 : 2 = 30; 30 : 2 = 15; 15 = 3 · 5.']},
+ {ctx:'Bài 2: Phân tích các số sau ra thừa số nguyên tố: 420, 60, 84, 285, 400, 120, 306.', q:'Số 306 = ?', t:'mcq', o:['2 · 3 · 51','2 · 3^2 · 17','2 · 9 · 17','3^2 · 34'], a:1, h:['306 : 2 = 153; 153 : 3 = 51; 51 : 3 = 17.','306 = 2 · 3 · 3 · 17.']},
+ {ctx:'Bài 3: Cho số 15. 1) Phân tích 15 ra thừa số nguyên tố. 2) Số 3 và số 5 có là ước của 15 không? 3) Liệt kê các ước của 18.', q:'3) Liệt kê tất cả các ước của 18.', t:'set', a:'1;2;3;6;9;18', h:['Lấy 18 chia lần lượt cho 1, 2, 3, ... đến 18.','Ước đi theo cặp: 1·18, 2·9, 3·6.']},
+ {ctx:'Bài 3: Cho số 15. 1) Phân tích 15 ra thừa số nguyên tố. 2) Số 3 và số 5 có là ước của 15 không? 3) Liệt kê các ước của 18.', q:'1, 2) Ta có 15 = 3 · 5. Số 3 và số 5 có là ước của 15 không?', t:'mcq', o:['Có, cả hai đều là ước của 15','Chỉ 3 là ước','Chỉ 5 là ước','Không số nào'], a:0, h:['15 : 3 = 5 và 15 : 5 = 3, đều chia hết.']},
  {q:'Bài 4: Cho a = 2^3 · 5^2 · 11. Số nào là ước của a?', t:'pick', rows:[['3',['Là ước','Không'],1],['4',['Là ước','Không'],0],['16',['Là ước','Không'],1],['11',['Là ước','Không'],0],['20',['Là ước','Không'],0]],
   h:['a chỉ có các thừa số nguyên tố 2 (tối đa 3 lần), 5 (tối đa 2 lần) và 11.','3 không có trong a. 16 = 2^4 cần 4 thừa số 2 nhưng a chỉ có 3.','4 = 2^2, 20 = 2^2 · 5 đều nằm gọn trong a.']},
- {q:'Bài 5a: x ∈ B(8) và 12 ≤ x ≤ 120. Viết tất cả các số x.', t:'set', a:'16;24;32;40;48;56;64;72;80;88;96;104;112;120',
+ {ctx:'Bài 5: Tìm tất cả các số tự nhiên x sao cho:', q:'a) x ∈ B(8) và 12 ≤ x ≤ 120. Viết tất cả các số x.', t:'set', a:'16;24;32;40;48;56;64;72;80;88;96;104;112;120',
   h:['B(8) là bội của 8: 0, 8, 16, 24, ...','Bắt đầu từ 16 (vì 8 < 12), cứ cộng thêm 8 đến 120.']},
- {q:'Bài 5b: x ∈ Ư(45) và x > 5.', t:'set', a:'9;15;45', h:['Ư(45) = {1; 3; 5; 9; 15; 45}.','Lấy các số lớn hơn 5.']},
- {q:'Bài 5c: x chia hết cho 12 và 0 < x ≤ 30.', t:'set', a:'12;24', h:['Bội của 12: 0, 12, 24, 36, ...','Bỏ 0 và các số lớn hơn 30.']},
- {q:'Bài 5d: x ∈ Ư(6) và x ∈ B(2).', t:'set', a:'2;6', h:['Ư(6) = {1; 2; 3; 6}.','Trong đó số nào là bội của 2 (số chẵn)?']},
- {q:'Bài 5e: x chia hết cho 17 và 0 < x < 70.', t:'set', a:'17;34;51;68', h:['17 · 1, 17 · 2, 17 · 3, 17 · 4 = 68. 17 · 5 = 85 quá 70.']},
- {q:'Bài 5f: x ∈ B(6) và x ∈ Ư(48).', t:'set', a:'6;12;24;48', h:['Ư(48) = {1; 2; 3; 4; 6; 8; 12; 16; 24; 48}.','Chọn số chia hết cho 6.']},
- {q:'Bài 5g: 6 chia hết cho (x − 1). Tìm x.', t:'set', a:'2;3;4;7', h:['x − 1 là ước của 6: 1; 2; 3; 6.','x = ước + 1.']},
- {q:'Bài 5h: (x + 9) chia hết cho (x + 7). Tìm x.', t:'set', a:'', h:['x + 9 = (x + 7) + 2. Vậy 2 phải chia hết cho (x + 7).','x + 7 phải là 1 hoặc 2. Nhưng x + 7 luôn ≥ 7.','Không có x nào. Bấm nút ∅ (tập rỗng).']},
- {q:'Bài 5i: 8 chia hết cho (x − 2). Tìm x.', t:'set', a:'3;4;6;10', h:['x − 2 là ước của 8: 1; 2; 4; 8.','x = ước + 2.']},
- {q:'Bài 5k: 9 chia hết cho (x + 1). Tìm x.', t:'set', a:'0;2;8', h:['x + 1 là ước của 9: 1; 3; 9.','x = ước − 1.']}
+ {ctx:'Bài 5: Tìm tất cả các số tự nhiên x sao cho:', q:'b) x ∈ Ư(45) và x > 5.', t:'set', a:'9;15;45', h:['Ư(45) = {1; 3; 5; 9; 15; 45}.','Lấy các số lớn hơn 5.']},
+ {ctx:'Bài 5: Tìm tất cả các số tự nhiên x sao cho:', q:'c) x chia hết cho 12 và 0 < x ≤ 30.', t:'set', a:'12;24', h:['Bội của 12: 0, 12, 24, 36, ...','Bỏ 0 và các số lớn hơn 30.']},
+ {ctx:'Bài 5: Tìm tất cả các số tự nhiên x sao cho:', q:'d) x ∈ Ư(6) và x ∈ B(2).', t:'set', a:'2;6', h:['Ư(6) = {1; 2; 3; 6}.','Trong đó số nào là bội của 2 (số chẵn)?']},
+ {ctx:'Bài 5: Tìm tất cả các số tự nhiên x sao cho:', q:'e) x chia hết cho 17 và 0 < x < 70.', t:'set', a:'17;34;51;68', h:['17 · 1, 17 · 2, 17 · 3, 17 · 4 = 68. 17 · 5 = 85 quá 70.']},
+ {ctx:'Bài 5: Tìm tất cả các số tự nhiên x sao cho:', q:'f) x ∈ B(6) và x ∈ Ư(48).', t:'set', a:'6;12;24;48', h:['Ư(48) = {1; 2; 3; 4; 6; 8; 12; 16; 24; 48}.','Chọn số chia hết cho 6.']},
+ {ctx:'Bài 5: Tìm tất cả các số tự nhiên x sao cho:', q:'g) 6 chia hết cho (x − 1). Tìm x.', t:'set', a:'2;3;4;7', h:['x − 1 là ước của 6: 1; 2; 3; 6.','x = ước + 1.']},
+ {ctx:'Bài 5: Tìm tất cả các số tự nhiên x sao cho:', q:'h) (x + 9) chia hết cho (x + 7). Tìm x.', t:'set', a:'', h:['x + 9 = (x + 7) + 2. Vậy 2 phải chia hết cho (x + 7).','x + 7 phải là 1 hoặc 2. Nhưng x + 7 luôn ≥ 7.','Không có x nào. Bấm nút ∅ (tập rỗng).']},
+ {ctx:'Bài 5: Tìm tất cả các số tự nhiên x sao cho:', q:'i) 8 chia hết cho (x − 2). Tìm x.', t:'set', a:'3;4;6;10', h:['x − 2 là ước của 8: 1; 2; 4; 8.','x = ước + 2.']},
+ {ctx:'Bài 5: Tìm tất cả các số tự nhiên x sao cho:', q:'k) 9 chia hết cho (x + 1). Tìm x.', t:'set', a:'0;2;8', h:['x + 1 là ước của 9: 1; 3; 9.','x = ước − 1.']}
 ]},
 /* ================= 10 ================= */
 {id:'t10', title:'Giải cứu Quỳnh Tâm', sub:'Dạng 5: Hình học', theme:'rescue',
  intro:'Quỳnh Tâm bị nhốt trên đỉnh tháp! Mỗi câu hình học đúng giúp Đạt leo thêm một bậc thang. Lên tới đỉnh là mở được lồng!',
  qs:[
- {q:'Bài 1a: Tam giác đều ABC cạnh 3 cm có tính chất gì?', t:'mcq', o:['3 cạnh bằng nhau, 3 góc bằng nhau','Chỉ có 2 cạnh bằng nhau','Có một góc vuông','3 cạnh khác nhau'], a:0,
+ {ctx:'Bài 1a: Vẽ tam giác đều ABC có cạnh bằng 3 cm. Nêu các tính chất của tam giác đều.', q:'Tam giác đều ABC có tính chất gì?', t:'mcq', o:['3 cạnh bằng nhau, 3 góc bằng nhau','Chỉ có 2 cạnh bằng nhau','Có một góc vuông','3 cạnh khác nhau'], a:0,
   h:['"Đều" nghĩa là mọi thứ bằng nhau.','AB = BC = CA = 3 cm, ba góc bằng nhau (mỗi góc 60°).']},
- {q:'Bài 1b: Hình bình hành ABCD có AB = 6 cm, BC = 4 cm. Độ dài CD và AD là:', t:'pick', rows:[['CD =',['4 cm','6 cm'],1],['AD =',['4 cm','6 cm'],0]],
+ {ctx:'Bài 1b: Vẽ hình bình hành ABCD có AB = 6 cm, BC = 4 cm. Kể tên các đỉnh, các góc, các cạnh, các đường chéo của hình.', q:'Độ dài cạnh CD và cạnh AD là bao nhiêu?', t:'pick', rows:[['CD =',['4 cm','6 cm'],1],['AD =',['4 cm','6 cm'],0]],
   h:['Hình bình hành có các cạnh đối bằng nhau.','CD đối diện AB; AD đối diện BC.']},
- {q:'Bài 1b (tiếp): Các đường chéo của hình bình hành ABCD là:', t:'mcq', o:['AB và CD','AC và BD','AD và BC','AB và BC'], a:1,
+ {ctx:'Bài 1b: Vẽ hình bình hành ABCD có AB = 6 cm, BC = 4 cm. Kể tên các đỉnh, các góc, các cạnh, các đường chéo của hình.', q:'Các đường chéo của hình bình hành ABCD là:', t:'mcq', o:['AB và CD','AC và BD','AD và BC','AB và BC'], a:1,
   h:['Đường chéo nối hai đỉnh <b>không</b> kề nhau.','A nối với C, B nối với D.']},
- {q:'Bài 2: Hình vuông ABCD cạnh 3 cm. Chu vi và diện tích là:', t:'pick', rows:[['Chu vi',['9 cm','12 cm','6 cm'],1],['Diện tích',['9 cm²','12 cm²','6 cm²'],0]],
+ {ctx:'Bài 2: Vẽ hình vuông ABCD có cạnh AB = 3 cm. Tính chu vi và diện tích của nó.', q:'Chu vi và diện tích hình vuông ABCD là:', t:'pick', rows:[['Chu vi',['9 cm','12 cm','6 cm'],1],['Diện tích',['9 cm²','12 cm²','6 cm²'],0]],
   h:['Chu vi hình vuông = cạnh × 4.','Diện tích = cạnh × cạnh.']},
- {q:'Bài 3: Hình thoi MNPQ cạnh 4 cm. Các đường chéo là:', t:'mcq', o:['MN và PQ','MP và NQ','MQ và NP','MN và NP'], a:1, h:['Nối các đỉnh đối nhau: M với P, N với Q.']},
- {q:'Bài 3 (tiếp): Chu vi hình thoi MNPQ cạnh 4 cm là:', t:'in', a:['16'], unit:'cm', h:['Hình thoi có 4 cạnh bằng nhau.','4 · 4.']},
- {q:'Bài 4b: Sân hình chữ nhật MNPQ, MN = 6 m, MQ = 4 m. Chu vi sân là:', fig:'b4', t:'in', a:['20'], unit:'m', h:['Chu vi = (dài + rộng) · 2.','(6 + 4) · 2.']},
- {q:'Bài 4b (tiếp): Diện tích sân là:', fig:'b4', t:'in', a:['24'], unit:'m²', h:['Diện tích = dài × rộng = 6 · 4.']},
- {q:'Bài 4c: Lát sân bằng gạch vuông cạnh 20 cm. Cần bao nhiêu viên gạch?', fig:'b4', t:'in', a:['600'], unit:'viên',
+ {ctx:'Bài 3: Vẽ hình thoi MNPQ có cạnh bằng 4 cm. Kể tên các đỉnh, các góc, các cạnh, các đường chéo của hình thoi.', q:'Các đường chéo của hình thoi MNPQ là:', t:'mcq', o:['MN và PQ','MP và NQ','MQ và NP','MN và NP'], a:1, h:['Nối các đỉnh đối nhau: M với P, N với Q.']},
+ {ctx:'Bài 3: Vẽ hình thoi MNPQ có cạnh bằng 4 cm. Kể tên các đỉnh, các góc, các cạnh, các đường chéo của hình thoi.', q:'Thêm: chu vi hình thoi MNPQ là bao nhiêu?', t:'in', a:['16'], unit:'cm', h:['Hình thoi có 4 cạnh bằng nhau.','4 · 4.']},
+ {ctx:'Bài 4: Nhà bác An có một cái sân hình chữ nhật MNPQ, biết MN = 6 m, MQ = 4 m (như hình).', q:'b) Tính chu vi cái sân.', fig:'b4', t:'in', a:['20'], unit:'m', h:['Chu vi = (dài + rộng) · 2.','(6 + 4) · 2.']},
+ {ctx:'Bài 4: Nhà bác An có một cái sân hình chữ nhật MNPQ, biết MN = 6 m, MQ = 4 m (như hình).', q:'b) Tính diện tích cái sân.', fig:'b4', t:'in', a:['24'], unit:'m²', h:['Diện tích = dài × rộng = 6 · 4.']},
+ {ctx:'Bài 4: Nhà bác An có một cái sân hình chữ nhật MNPQ, biết MN = 6 m, MQ = 4 m (như hình).', q:'c) Bác An muốn dùng loại gạch hình vuông có cạnh 20 cm để lát kín sân. Bác phải dùng bao nhiêu viên gạch (coi mạch vữa không đáng kể)?', fig:'b4', t:'in', a:['600'], unit:'viên',
   h:['Đổi cùng đơn vị: 6 m = 600 cm, 4 m = 400 cm.','Chiều dài xếp được 600 : 20 = 30 viên, chiều rộng 400 : 20 = 20 viên.','30 · 20 = 600 viên.']},
- {q:'Bài 5a: Khu vườn hình chữ nhật rộng 12 m, dài 40 m. Chu vi khu vườn là:', fig:'b5', t:'in', a:['104'], unit:'m', h:['(40 + 12) · 2.']},
- {q:'Bài 5b: Làm hàng rào xung quanh, chừa cửa vào rộng 3 m. Cần bao nhiêu mét dây thép?', fig:'b5', t:'in', a:['101'], unit:'m', h:['Hàng rào = chu vi − cửa.','104 − 3.']},
- {q:'Bài 5c: Làm lối đi rộng 2 m xung quanh vườn, phần còn lại là 2 mảnh hình thoi bằng nhau để trồng hoa (như hình). Trồng hoa 100 000 đồng/m². Chi phí trồng hoa là:', fig:'b5', t:'in', a:['14400000'], unit:'đồng',
+ {ctx:'Bài 5: Một khu vườn hình chữ nhật có chiều rộng 12 m và chiều dài 40 m, cửa vào khu vườn rộng 3 m (như hình).', q:'a) Tính chu vi khu vườn.', fig:'b5', t:'in', a:['104'], unit:'m', h:['(40 + 12) · 2.']},
+ {ctx:'Bài 5: Một khu vườn hình chữ nhật có chiều rộng 12 m và chiều dài 40 m, cửa vào khu vườn rộng 3 m (như hình).', q:'b) Người ta làm hàng rào dây thép gai xung quanh vườn (trừ chỗ cửa vào). Cần bao nhiêu mét dây thép gai?', fig:'b5', t:'in', a:['101'], unit:'m', h:['Hàng rào = chu vi − cửa.','104 − 3.']},
+ {ctx:'Bài 5: Một khu vườn hình chữ nhật có chiều rộng 12 m và chiều dài 40 m, cửa vào khu vườn rộng 3 m (như hình).', q:'c) Trong vườn, người ta làm lối đi rộng 2 m xung quanh. Phần đất còn lại tạo ra hai mảnh hình thoi bằng nhau để trồng hoa (phần màu hồng). Chi phí trồng hoa là 100 000 đồng/m². Hỏi chi phí trồng hoa là bao nhiêu?', fig:'b5', t:'in', a:['14400000'], unit:'đồng',
   h:['Phần còn lại: dài 40 − 2 − 2 = 36 m, rộng 12 − 2 − 2 = 8 m.','Mỗi hình thoi có hai đường chéo là 18 m và 8 m → diện tích = 18 · 8 : 2 = 72 m².','2 hình thoi: 144 m². Chi phí: 144 · 100 000.']},
  {q:'Bài 6: Hình vuông ABCD có chu vi 20 cm. Diện tích là:', t:'in', a:['25'], unit:'cm²', h:['Cạnh = 20 : 4 = 5 cm.','Diện tích = 5 · 5.']},
  {q:'Bài 7: Sân chơi hình bình hành đáy 18 m, cao 12 m. Xây bồn hoa hình chữ nhật 3 m × 2 m. Diện tích còn lại là:', t:'in', a:['210'], unit:'m²',
@@ -655,7 +661,10 @@ var SFX={
  step:S_(function(){noise(.05,.1,1200,400,'lowpass')}),
  heart:S_(function(){[660,880,1320].forEach(function(f,i){tone(f,.16,'sine',.12,null,i*.09)})}),
  win:S_(function(){var m=[[523,.15],[659,.15],[784,.15],[1047,.3],[784,.15],[1047,.6]],t=0;m.forEach(function(n){tone(n[0],n[1]+.05,'triangle',.18,null,t);tone(n[0]/2,n[1],'square',.04,null,t);t+=n[1]});noise(.6,.1,8000,2000,'highpass',t-.3)}),
- pop:S_(function(){tone(400,.08,'sine',.15,900)})
+ pop:S_(function(){tone(400,.08,'sine',.15,900)}),
+ oops:S_(function(){tone(560,.16,'square',.1);tone(370,.32,'square',.1,330,.16)}),
+ zap:S_(function(){noise(.5,.5,9000,1500,'highpass');tone(80,.5,'sawtooth',.2,40)}),
+ build:S_(function(){[392,523,659].forEach(function(f,i){tone(f,.12,'square',.07,null,i*.06)});noise(.15,.2,600,150,'lowpass',.18)})
 };
 var PATS={
  river:{root:392,ms:190,wave:'triangle',mel:[0,4,7,4,9,7,4,2,0,2,4,7,9,12,9,7],bass:[0,5,7,5]},
@@ -663,6 +672,9 @@ var PATS={
  coins:{root:440,ms:170,wave:'triangle',mel:[0,7,12,7,5,9,12,9,4,7,11,7,2,7,11,14],bass:[0,5,4,2]},
  chase:{root:294,ms:150,wave:'sawtooth',mel:[0,null,0,1,0,null,0,1,3,null,3,1,0,null,-1,null],bass:[0,0,1,0]},
  lava:{root:262,ms:200,wave:'square',mel:[0,3,5,6,7,6,5,3,0,null,3,null,7,6,3,null],bass:[0,0,-2,-2]},
+ obby:{root:523,ms:160,wave:'square',mel:[0,7,4,7,12,7,4,7,2,9,5,9,14,9,5,9],bass:[0,0,5,7]},
+ disaster:{root:220,ms:200,wave:'sawtooth',mel:[0,null,3,null,0,7,6,null,0,null,3,null,10,7,6,3],bass:[0,0,-2,-1]},
+ tycoon:{root:392,ms:170,wave:'triangle',mel:[0,4,7,4,0,4,7,12,5,9,12,9,7,11,14,11],bass:[0,5,7,0]},
  rescue:{root:392,ms:180,wave:'triangle',mel:[0,4,7,12,11,7,4,7,5,9,12,17,16,12,9,12],bass:[0,0,5,5]}
 };
 var BGM={t:null,i:0,p:null,
@@ -685,25 +697,103 @@ function burst(g,x,y,n,cols,o){o=o||{};for(var i=0;i<n;i++){(function(){
   anim(e,[{transform:'translate('+x+'px,'+y+'px) rotate(0deg)',opacity:1},{transform:'translate('+(x+dx)+'px,'+(y+dy)+'px) rotate('+(Math.random()*720)+'deg)',opacity:0}],{duration:(o.dur||700)*(.7+Math.random()*.6),easing:'cubic-bezier(.15,.7,.4,1)'}).then(function(){e.remove()})})()}}
 
 /* ======================= SPRITES ======================= */
-function faceDefs(){return '<clipPath id="cpF" clipPathUnits="objectBoundingBox"><circle cx=".5" cy=".5" r=".5"/></clipPath>'}
-function dat(){return '<ellipse cx="0" cy="1" rx="17" ry="4.5" fill="rgba(0,0,0,.25)"/>'+
- '<g class="legs"><rect x="-11" y="-26" width="9" height="24" rx="4" fill="#1f2a55"/><rect x="2" y="-26" width="9" height="24" rx="4" fill="#1f2a55"/><rect x="-14" y="-5" width="13" height="7" rx="3.5" fill="#fff"/><rect x="1" y="-5" width="13" height="7" rx="3.5" fill="#fff"/></g>'+
- '<rect x="-24" y="-50" width="9" height="23" rx="4.5" fill="#f1c09a"/><rect x="15" y="-50" width="9" height="23" rx="4.5" fill="#f1c09a"/>'+
- '<rect x="-16" y="-54" width="32" height="32" rx="10" fill="#ff7a2f"/><rect x="-16" y="-54" width="32" height="9" rx="4" fill="#fff"/><path d="M-9 -40l6 6 4-8 6 7" stroke="#2fbf5b" stroke-width="3" fill="none" stroke-linecap="round"/>'+
- '<circle cx="0" cy="-76" r="24" fill="#fff"/><image href="'+IMG.dat+'" x="-21.5" y="-97.5" width="43" height="43" clip-path="url(#cpF)" preserveAspectRatio="xMidYMid slice"/><circle cx="0" cy="-76" r="22.5" fill="none" stroke="#ffcf33" stroke-width="3"/>'}
-function tam(){return '<ellipse cx="0" cy="1" rx="14" ry="4" fill="rgba(0,0,0,.25)"/><rect x="-9" y="-20" width="7" height="19" rx="3.5" fill="#2b2b55"/><rect x="2" y="-20" width="7" height="19" rx="3.5" fill="#2b2b55"/>'+
- '<rect x="-20" y="-42" width="8" height="19" rx="4" fill="#e01f34"/><rect x="12" y="-42" width="8" height="19" rx="4" fill="#e01f34"/><rect x="-13" y="-46" width="26" height="28" rx="9" fill="#e01f34"/><text x="0" y="-27" font-size="7" font-weight="900" fill="#fff" text-anchor="middle" font-family="Nunito">BABY</text>'+
- '<circle cx="0" cy="-64" r="20" fill="#fff"/><image href="'+IMG.tam+'" x="-18" y="-82" width="36" height="36" clip-path="url(#cpF)" preserveAspectRatio="xMidYMid slice"/><circle cx="0" cy="-64" r="19" fill="none" stroke="#ff8fb1" stroke-width="3"/>'}
-function giant(skin){var b=skin==='jungle'?'#2f5d2a':'#3b2d6b',b2=skin==='jungle'?'#24481f':'#2a1f52',hd=skin==='jungle'?'#4d7a33':'#5a4a9a';
+function faceDefs(){return '<clipPath id="cpF" clipPathUnits="objectBoundingBox"><circle cx=".5" cy=".5" r=".5"/></clipPath><clipPath id="cpS" clipPathUnits="objectBoundingBox"><rect width="1" height="1" rx=".12"/></clipPath>'}
+function dat(){return '<ellipse cx="0" cy="1" rx="20" ry="4.5" fill="rgba(0,0,0,.25)"/>'+
+ '<g class="lL"><rect x="-13" y="-31" width="12" height="26" fill="#1f2a55"/><rect x="-14" y="-6" width="14" height="7" rx="1.5" fill="#fff"/></g>'+
+ '<g class="lR"><rect x="1" y="-31" width="12" height="26" fill="#1f2a55"/><rect x="0" y="-6" width="14" height="7" rx="1.5" fill="#fff"/></g>'+
+ '<g class="aL"><rect x="-29" y="-62" width="11" height="15" fill="#ff7a2f"/><rect x="-29" y="-48" width="11" height="17" fill="#f1c09a"/></g>'+
+ '<g class="aR"><rect x="18" y="-62" width="11" height="15" fill="#ff7a2f"/><rect x="18" y="-48" width="11" height="17" fill="#f1c09a"/></g>'+
+ '<rect x="-18" y="-63" width="36" height="34" fill="#ff7a2f"/><rect x="-18" y="-63" width="36" height="6" fill="#fff"/><rect x="-18" y="-34" width="36" height="5" fill="#1f2a55"/><path d="M-9 -49l5 5 4-7 5 6" stroke="#2fbf5b" stroke-width="3" fill="none"/>'+
+ '<rect x="-6" y="-67" width="12" height="5" fill="#e3ad85"/>'+
+ '<rect x="-24" y="-113" width="48" height="48" rx="6" fill="#f1c09a" stroke="#ffcf33" stroke-width="3.5"/><image href="'+IMG.dat+'" x="-21" y="-110" width="42" height="42" clip-path="url(#cpS)" preserveAspectRatio="xMidYMid slice"/>'}
+function tam(){return '<ellipse cx="0" cy="1" rx="16" ry="4" fill="rgba(0,0,0,.25)"/>'+
+ '<rect x="-11" y="-24" width="10" height="20" fill="#2b2b55"/><rect x="1" y="-24" width="10" height="20" fill="#2b2b55"/><rect x="-12" y="-5" width="11" height="6" rx="1.5" fill="#fff"/><rect x="1" y="-5" width="11" height="6" rx="1.5" fill="#fff"/>'+
+ '<g class="tA"><rect x="-24" y="-50" width="9" height="13" fill="#e01f34"/><rect x="-24" y="-38" width="9" height="13" fill="#f1c09a"/><rect x="15" y="-50" width="9" height="13" fill="#e01f34"/><rect x="15" y="-38" width="9" height="13" fill="#f1c09a"/></g>'+
+ '<rect x="-15" y="-51" width="30" height="28" fill="#e01f34"/><text x="0" y="-33" font-size="7.5" font-weight="900" fill="#fff" text-anchor="middle" font-family="Nunito">BABY</text>'+
+ '<rect x="-23" y="-93" width="46" height="44" rx="7" fill="#e01f34"/><rect x="-19" y="-91" width="38" height="38" rx="5" fill="#f1c09a" stroke="#ff8fb1" stroke-width="3"/><image href="'+IMG.tam+'" x="-17" y="-89" width="34" height="34" clip-path="url(#cpS)" preserveAspectRatio="xMidYMid slice"/>'}
+function avatar(who,w){var h=who==='tam'?100:120,top=who==='tam'?-96:-116;return '<svg viewBox="-34 '+top+' 68 '+(h+2)+'" width="'+w+'" height="'+(w*(h+2)/68)+'"><defs>'+faceDefs()+'</defs>'+(who==='tam'?tam():dat())+'</svg>'}
+function giant(skin){var b=skin==='jungle'?'#2f5d2a':skin==='prison'?'#2c4a9a':'#3b2d6b',b2=skin==='jungle'?'#24481f':skin==='prison'?'#141a33':'#2a1f52',hd=skin==='jungle'?'#4d7a33':skin==='prison'?'#c9925f':'#5a4a9a';
  return '<ellipse cx="0" cy="2" rx="40" ry="8" fill="rgba(0,0,0,.3)"/><rect x="-30" y="-60" width="26" height="60" fill="'+b2+'"/><rect x="4" y="-60" width="26" height="60" fill="'+b2+'"/>'+
- '<rect x="-38" y="-130" width="76" height="72" fill="'+b+'"/><rect x="-62" y="-128" width="24" height="66" fill="'+hd+'"/><rect x="38" y="-128" width="24" height="66" fill="'+hd+'"/>'+
- '<rect x="-30" y="-196" width="60" height="64" fill="'+hd+'"/><rect x="-20" y="-176" width="14" height="10" fill="#ff2a2a" class="glow"/><rect x="6" y="-176" width="14" height="10" fill="#ff2a2a" class="glow"/><path d="M-22 -184l16 6M22 -184l-16 6" stroke="#111" stroke-width="5"/><rect x="-14" y="-156" width="28" height="7" fill="#111"/><rect x="-10" y="-156" width="5" height="5" fill="#fff"/><rect x="5" y="-156" width="5" height="5" fill="#fff"/>'}
-function monster(skin){var c1=skin==='nebula'?'#16c7b0':'#9b4dff',c2=skin==='nebula'?'#0d8f80':'#6a22d4';
- return '<g class="bobS"><path d="M-60 40 C-70 -40 -40 -80 0 -80 C40 -80 70 -40 60 40 C45 25 35 50 20 35 C10 55 -10 55 -20 35 C-35 50 -45 25 -60 40Z" fill="'+c1+'" stroke="'+c2+'" stroke-width="5"/>'+
- '<path d="M-38 -66l-14 -26 24 14M38 -66l14 -26 -24 14" fill="#ffcf33" stroke="#c98a00" stroke-width="3"/><circle cx="0" cy="-30" r="26" fill="#fff"/><circle class="pupil" cx="-6" cy="-28" r="12" fill="#1b1740"/><circle cx="-10" cy="-33" r="4" fill="#fff"/>'+
- '<path d="M-26 10 Q0 26 26 10" stroke="#1b1740" stroke-width="5" fill="#3a0d2a"/><path d="M-18 13l5 8 5-7 5 7 5-7 5 7 4-8" fill="#fff"/></g>'}
+ '<rect x="-38" y="-130" width="76" height="72" fill="'+b+'"/><rect x="-38" y="-76" width="76" height="10" fill="'+b2+'"/><g class="gA"><rect x="-62" y="-128" width="24" height="66" fill="'+hd+'"/><rect x="38" y="-128" width="24" height="66" fill="'+hd+'"/></g>'+
+ '<rect x="-30" y="-196" width="60" height="64" fill="'+hd+'"/><rect x="-30" y="-196" width="60" height="12" fill="'+b2+'"/><rect x="-20" y="-176" width="14" height="10" fill="#ff2a2a" class="glow"/><rect x="6" y="-176" width="14" height="10" fill="#ff2a2a" class="glow"/><path d="M-22 -184l16 6M22 -184l-16 6" stroke="#111" stroke-width="5"/><rect x="-14" y="-156" width="28" height="7" fill="#111"/><rect x="-10" y="-156" width="5" height="5" fill="#fff"/><rect x="5" y="-156" width="5" height="5" fill="#fff"/>'+(skin==='prison'?guardCap():'')}
+function monster(skin){var c1=skin==='nebula'?'#16c7b0':'#9b4dff',c2=skin==='nebula'?'#0b7d70':'#5a1fc0';
+ return '<g class="bobS"><rect x="-5" y="-104" width="8" height="24" fill="#b9b4d6"/><rect x="-12" y="-118" width="22" height="16" fill="#ffcf33" class="glow"/>'+
+ '<rect x="-84" y="-62" width="26" height="54" fill="'+c2+'"/><rect x="58" y="-62" width="26" height="54" fill="'+c2+'"/><rect x="-88" y="-14" width="32" height="16" fill="#ffcf33"/><rect x="56" y="-14" width="32" height="16" fill="#ffcf33"/>'+
+ '<rect x="-44" y="8" width="28" height="30" fill="'+c2+'"/><rect x="16" y="8" width="28" height="30" fill="'+c2+'"/>'+
+ '<rect x="-58" y="-84" width="116" height="96" rx="4" fill="'+c1+'" stroke="'+c2+'" stroke-width="5"/>'+
+ '<rect x="-38" y="-68" width="76" height="40" fill="#fff" stroke="'+c2+'" stroke-width="4"/><rect class="pupil" x="-18" y="-60" width="24" height="24" fill="#1b1740"/><rect x="-14" y="-56" width="7" height="7" fill="#fff"/>'+
+ '<rect x="-30" y="-16" width="60" height="16" fill="#3a0d2a"/><rect x="-26" y="-16" width="9" height="7" fill="#fff"/><rect x="-11" y="-16" width="9" height="7" fill="#fff"/><rect x="4" y="-16" width="9" height="7" fill="#fff"/><rect x="18" y="-16" width="9" height="7" fill="#fff"/></g>'}
 function crab(){return '<ellipse cx="0" cy="-12" rx="22" ry="14" fill="#ff4d3a" stroke="#b8241a" stroke-width="3"/><circle cx="-8" cy="-30" r="5" fill="#fff" stroke="#b8241a" stroke-width="2"/><circle cx="8" cy="-30" r="5" fill="#fff" stroke="#b8241a" stroke-width="2"/><circle cx="-8" cy="-30" r="2" fill="#000"/><circle cx="8" cy="-30" r="2" fill="#000"/><path d="M-22 -16 q-14 -10 -8 -22 q8 4 6 10M22 -16 q14 -10 8 -22 q-8 4 -6 10" fill="#ff4d3a" stroke="#b8241a" stroke-width="3"/><path d="M-14 0l-8 6M-6 1l-4 7M6 1l4 7M14 0l8 6" stroke="#b8241a" stroke-width="3" stroke-linecap="round"/>'}
 function coinS(){return '<g class="spinC"><circle r="13" fill="#ffcf33" stroke="#c98a00" stroke-width="3"/><circle r="7" fill="none" stroke="#e0a100" stroke-width="2"/></g>'}
+
+/* ======================= ROBLOX-STYLE THEMES ======================= */
+var OBC=['#ff4d6d','#3d7bff','#ffcf33','#16c7b0','#a259ff','#ff8a3d'];
+function pad(x,y,w,c,label){return '<rect x="'+(x-w/2)+'" y="'+(y+18)+'" width="'+w+'" height="8" fill="rgba(0,0,0,.25)"/><rect x="'+(x-w/2)+'" y="'+y+'" width="'+w+'" height="18" fill="'+c+'"/><rect x="'+(x-w/2)+'" y="'+y+'" width="'+w+'" height="5" fill="#fff" opacity=".35"/>'+(label?'<text x="'+x+'" y="'+(y+14)+'" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" font-family="Nunito">'+label+'</text>':'')}
+function building(k,x,y){var s='';
+ if(k===0)s='<rect x="'+(x-26)+'" y="'+(y-70)+'" width="52" height="40" fill="#7d8597"/><rect x="'+(x-26)+'" y="'+(y-70)+'" width="52" height="8" fill="#a3abbd"/><path d="M'+(x-12)+' '+(y-30)+'h24l-6 12h-12z" fill="#5b6273"/><rect x="'+(x-6)+'" y="'+(y-14)+'" width="12" height="12" fill="#ffcf33" class="glow"/><rect x="'+(x-30)+'" y="'+(y-30)+'" width="8" height="30" fill="#5b6273"/><rect x="'+(x+22)+'" y="'+(y-30)+'" width="8" height="30" fill="#5b6273"/>';
+ if(k===1)s='<rect x="'+(x-50)+'" y="'+(y-18)+'" width="100" height="14" fill="#2b2f3a"/><g class="waveA"><path d="M'+(x-50)+' '+(y-11)+'h160" stroke="#ffcf33" stroke-width="3" stroke-dasharray="8 12"/></g><rect x="'+(x-20)+'" y="'+(y-30)+'" width="12" height="12" fill="#ffcf33"/><rect x="'+(x+10)+'" y="'+(y-30)+'" width="12" height="12" fill="#16c7b0"/>';
+ if(k===2)s='<rect x="'+(x-34)+'" y="'+(y-56)+'" width="68" height="56" fill="#f3e2c4"/><path d="M'+(x-42)+' '+(y-56)+'l42 -30l42 30z" fill="#e8394f"/><rect x="'+(x-8)+'" y="'+(y-28)+'" width="16" height="28" fill="#8a4f22"/><rect x="'+(x-28)+'" y="'+(y-46)+'" width="14" height="12" fill="#7fd3ff"/><rect x="'+(x+14)+'" y="'+(y-46)+'" width="14" height="12" fill="#7fd3ff"/>';
+ if(k===3)s='<rect x="'+(x-22)+'" y="'+(y-110)+'" width="44" height="110" fill="#3d7bff"/><rect x="'+(x-22)+'" y="'+(y-110)+'" width="44" height="8" fill="#9ec0ff"/>'+[0,1,2,3].map(function(j){return '<rect x="'+(x-14)+'" y="'+(y-96+j*24)+'" width="10" height="12" fill="#fff6a8"/><rect x="'+(x+4)+'" y="'+(y-96+j*24)+'" width="10" height="12" fill="#fff6a8"/>'}).join('');
+ if(k===4)s='<rect x="'+(x-6)+'" y="'+(y-30)+'" width="12" height="30" fill="#7a4d28"/><rect x="'+(x-30)+'" y="'+(y-74)+'" width="60" height="46" fill="#2fbf5b"/><rect x="'+(x-20)+'" y="'+(y-92)+'" width="40" height="20" fill="#3fd46b"/>';
+ return s}
+function guardCap(){return '<rect x="-34" y="-206" width="68" height="18" fill="#141a33"/><rect x="-40" y="-190" width="80" height="6" fill="#141a33"/><rect x="-6" y="-202" width="12" height="10" fill="#ffcf33"/><rect x="-28" y="-118" width="12" height="12" fill="#ffcf33"/>'}
+var TH={
+ obby:{col:{s1:'#6a5cff',s2:'#ffa8d8'},y:function(i){return 222+Math.round(Math.sin(i*1.25)*26)},
+  bg:function(){var r=rng(5),s='';for(var i=0;i<6;i++)s+='<g opacity=".55"><rect x="'+(r()*600)+'" y="'+(20+r()*80)+'" width="'+(30+r()*40)+'" height="'+(10+r()*14)+'" fill="'+OBC[i%6]+'"/></g>';return s},
+  par:function(W){var s='',r=rng(9);for(var i=-200;i<W;i+=120)s+='<ellipse cx="'+i+'" cy="'+(310+r()*20)+'" rx="'+(70+r()*30)+'" ry="34" fill="#fff" opacity=".85"/>';return s},
+  world:function(){var P=this.P,N=this.N,s='',r=rng(4);
+   for(var i=0;i<=N;i++){var x=P[i].x,y=P[i].y;
+    if(i===0)s+=pad(x,y,130,'#8a8fa8','SPAWN');
+    else if(i===N)s+=pad(x+40,y,180,'#ffcf33','')+'<g transform="translate('+(x+70)+','+y+')"><rect x="-8" y="-26" width="16" height="26" fill="#c98a00"/><path d="M-20 -60h40v14a20 20 0 0 1-40 0z" fill="#ffcf33" stroke="#c98a00" stroke-width="3"/><rect x="-16" y="-30" width="32" height="6" fill="#c98a00"/><text x="0" y="-36" text-anchor="middle" font-size="10" font-weight="900" fill="#7a5200" font-family="Nunito">WIN</text></g>';
+    else if(i%4===0)s+=pad(x,y,84,'#2fbf5b','')+'<rect x="'+(x+26)+'" y="'+(y-46)+'" width="4" height="46" fill="#fff"/><g class="flag"><path d="M'+(x+30)+' '+(y-46)+'h22l-5 7 5 7h-22z" fill="#2fbf5b"/></g>';
+    else s+=pad(x,y,72,OBC[i%6],'');
+    if(i>0&&i<N&&r()<.45)s+='<rect x="'+(x+48)+'" y="'+(y+46)+'" width="60" height="10" fill="#ff1f3d" class="glow"/>';}
+   return s},
+  wrong:function(i){var s=this,a=this.P[i],b=this.P[i+1],mx=(a.x+b.x)/2,x0=this.px,y0=this.py;SFX.jump();
+   return tween(420,function(t){s.px=x0+(mx-x0)*t;s.py=y0+(y0+10-y0)*t-4*45*t*(1-t);s.place();s.cam()},function(t){return t}).then(function(){SFX.oops();
+     burst(s.gW,s.px,s.py-50,16,['#ff7a2f','#1f2a55','#f1c09a','#fff'],{rect:true,r:6,sp:80,grav:60,dur:900});
+     return tween(450,function(t){s.py=y0+10+t*170;s.pl.style.opacity=1-t;var f=Math.sin(t*40);s.pose(160+25*f,-160+25*f,-20*f,20*f);s.place()})}).then(function(){return sleep(200)}).then(function(){
+     s.px=a.x;s.py=a.y;s.pl.style.opacity=1;s.pose(0,0,0,0);s.place();var q=s.scr(a.x,a.y-50);burst(s.gF,q.x,q.y,12,['#fff','#ffcf33','#7fd3ff'],{sp:50});SFX.pop();return s.blink()})},
+  win:function(){var s=this,l=this.P[this.N];return this.jump(l.x+60,l.y,50).then(function(){var q=s.scr(l.x+70,l.y-60);for(var k=0;k<5;k++)setTimeout(function(){burst(s.gF,q.x,q.y,12,['#ffcf33','#fff'],{sp:70})},k*150)})}
+ },
+ disaster:{col:{s1:'#2c3350',s2:'#7a7f99',w1:'#4a5a78',w2:'#232b3d'},y:function(i){return 232-((i*5)%3)*12},
+  bg:function(){var s='<g class="drift"><path d="M0 50 q40 -40 90 -10 q40 -30 90 0 q40 -20 70 10z M380 70 q40 -40 90 -10 q40 -30 90 0 q40 -20 70 10z M700 50 q40 -40 90 -10 q40 -30 90 0z" fill="#1d2338" opacity=".8"/></g>';
+   for(var i=0;i<40;i++)s+='<line x1="'+(i*17%640)+'" y1="'+(i*37%300)+'" x2="'+(i*17%640-6)+'" y2="'+(i*37%300+16)+'" stroke="#c9d4ff" stroke-width="1.5" opacity=".45" class="rain" style="animation-delay:-'+(i%7)/10+'s"/>';
+   return s+'<rect id="sunny" width="640" height="300" fill="#8fd3ff" opacity="0"/>'},
+  par:function(W){var s='',r=rng(2);for(var i=-100;i<W;i+=150)s+='<rect x="'+i+'" y="'+(170+r()*40)+'" width="'+(60+r()*50)+'" height="200" fill="#3a4160"/>';return s},
+  world:function(){var P=this.P,N=this.N,s='',W=P[N].x+700;
+   s+='<rect x="-400" y="262" width="'+(W+400)+'" height="200" fill="url(#gW)"/><g class="waveA"><path d="'+waves(-400,W,268,14)+'" stroke="#9fb3d8" stroke-width="3" fill="none" opacity=".5"/></g>';
+   for(var i=0;i<=N;i++){var x=P[i].x,y=P[i].y,w=i===0?140:i===N?160:80,cx=i===0?x-30:i===N?x+40:x;
+     s+='<rect x="'+(cx-w/2)+'" y="'+y+'" width="'+w+'" height="200" fill="#7a5534"/><rect x="'+(cx-w/2)+'" y="'+y+'" width="'+w+'" height="12" fill="#4caf50"/><rect x="'+(cx-w/2)+'" y="'+(y+12)+'" width="'+w+'" height="4" fill="#3b8a3e"/>';
+     if(i>0&&i<N&&i%3===1)s+='<g transform="translate('+(x+20)+','+y+')"><rect x="-2" y="-30" width="22" height="30" fill="#c9b79a"/><path d="M-6 -30l15 -14 15 14z" fill="#8a4f22"/></g>';}
+   var l=P[N];s+='<g transform="translate('+(l.x+80)+','+l.y+')"><rect x="-50" y="-60" width="100" height="60" fill="#8a8fa8"/><rect x="-50" y="-68" width="100" height="10" fill="#5b6273"/><rect x="-16" y="-38" width="32" height="38" fill="#3a3f55"/><rect x="-42" y="-92" width="84" height="20" rx="4" fill="#2fbf5b"/><text x="0" y="-77" text-anchor="middle" font-size="12" font-weight="900" fill="#fff" font-family="Nunito">HẦM TRÚ ẨN</text></g>';
+   return s},
+  init:function(){var t=el('g',{transform:'translate(14,14)'},this.gH);el('rect',{width:230,height:26,rx:8,fill:'rgba(0,0,0,.55)'},t);this.dTx=el('text',{x:12,y:18,'font-size':13,'font-weight':900,fill:'#ffcf33','font-family':'Nunito'},t);this.dTx.textContent='CẢNH BÁO: THIÊN TAI SẮP ĐẾN!';this.wc=0},
+  wrong:function(){var s=this,p=this.scr(this.px,this.py),kind=this.wc++%2;
+   if(kind===0){this.dTx.textContent='MƯA THIÊN THẠCH!';SFX.fire();var m=el('g',{},this.gF);el('rect',{x:-12,y:-12,width:24,height:24,fill:'#6b3a1f'},m);el('rect',{x:-8,y:-8,width:12,height:12,fill:'#ff7a1f'},m);
+     return tween(520,function(t){var x=p.x+180-150*t,y=-30+(p.y-10+30)*t;m.setAttribute('transform','translate('+x+','+y+') rotate('+(t*360)+')');burst(s.gF,x+10,y-10,1,['#ff7a1f','#ffcf33'],{r:5,sp:10,dur:300})},function(t){return t}).then(function(){m.remove();SFX.boom();s.shake();burst(s.gF,p.x+30,p.y-10,22,['#ff7a1f','#ffcf33','#6b3a1f','#fff'],{rect:true,r:6,sp:90});return s.blink()})}
+   this.dTx.textContent='SÉT ĐÁNH!';SFX.zap();var z=el('polyline',{points:(p.x+20)+',0 '+(p.x+6)+','+(p.y*.35)+' '+(p.x+26)+','+(p.y*.5)+' '+(p.x+4)+','+(p.y*.8)+' '+(p.x+14)+','+(p.y-20),fill:'none',stroke:'#fffbd0','stroke-width':6},this.gF),fl=el('rect',{width:640,height:300,fill:'#fff',opacity:.7},this.gF);
+   return anim(fl,[{opacity:.8},{opacity:0}],{duration:350}).then(function(){fl.remove();z.remove();s.shake();burst(s.gF,p.x+10,p.y-40,14,['#fffbd0','#7fd3ff'],{sp:60});return s.blink()})},
+  win:function(){var s=this,l=this.P[this.N];this.dTx.textContent='SỐNG SÓT! AN TOÀN RỒI!';var sun=$('#sunny',this.box);anim(sun,[{opacity:0},{opacity:.55}],{duration:900,fill:'forwards'});return this.jump(l.x+40,l.y,50)}
+ },
+ tycoon:{col:{s1:'#8fd3ff',s2:'#e8f7ff'},y:function(){return 240},
+  bg:function(){return '<circle cx="560" cy="55" r="28" fill="#fff3a0"/><g class="drift"><path d="M60 50h70a18 18 0 0 0-30-14a22 22 0 0 0-40 14z M700 70h70a18 18 0 0 0-30-14a22 22 0 0 0-40 14z" fill="#fff" opacity=".9"/></g>'},
+  par:function(W){var s='',r=rng(6);for(var i=-100;i<W;i+=90)s+='<rect x="'+i+'" y="'+(120+r()*60)+'" width="'+(40+r()*30)+'" height="200" fill="#b9d4ec"/>';return s},
+  world:function(){var P=this.P,N=this.N,s='',W=P[N].x+700;
+   s+='<rect x="-400" y="240" width="'+(W+400)+'" height="200" fill="#6cc46a"/>';for(var x=-400;x<W;x+=24)s+='<circle cx="'+x+'" cy="252" r="5" fill="#5bb05a"/><circle cx="'+(x+12)+'" cy="276" r="5" fill="#5bb05a"/>';
+   s+='<rect x="-400" y="240" width="'+(W+400)+'" height="10" fill="#9aa3b5"/>';
+   for(var i=1;i<=N;i++){var x2=P[i].x;s+='<g id="bd'+i+'" opacity="0" style="transform-box:fill-box;transform-origin:50% 100%">'+building(i%5,x2-75,226)+'</g><g id="pd'+i+'">'+pad(x2,234,62,'#2fbf5b','$'+(i*50))+'</g>'}
+   var l=P[N];s+='<g id="hq" opacity=".25" style="transform-box:fill-box;transform-origin:50% 100%" transform="translate('+(l.x+130)+',240)"><rect x="-50" y="-190" width="100" height="190" fill="#7a4dff"/><rect x="-50" y="-190" width="100" height="14" fill="#ffcf33"/>'+[0,1,2,3,4,5].map(function(j){return '<rect x="-36" y="'+(-166+j*26)+'" width="20" height="14" fill="#fff6a8"/><rect x="-8" y="'+(-166+j*26)+'" width="20" height="14" fill="#fff6a8"/><rect x="20" y="'+(-166+j*26)+'" width="16" height="14" fill="#fff6a8"/>'}).join('')+'<text x="0" y="-198" text-anchor="middle" font-size="14" font-weight="900" fill="#7a4dff" font-family="Nunito">ĐẠT TYCOON</text></g>';
+   return s},
+  init:function(){var t=el('g',{transform:'translate(14,14)'},this.gH);el('rect',{width:150,height:28,rx:8,fill:'rgba(0,0,0,.55)'},t);this.cash=0;this.cTx=el('text',{x:12,y:20,'font-size':16,'font-weight':900,fill:'#7dff8a','font-family':'Nunito'},t);this.cTx.textContent='TIỀN: $0'},
+  move:function(i,good){var s=this,to=this.P[i+1];return this.run(to.x,700).then(function(){var b=$('#bd'+(i+1),s.box),pd=$('#pd'+(i+1),s.box);
+    if(pd)pd.setAttribute('opacity','.35');SFX.build();
+    if(good){var add=(i+1)*50;s.cash+=add;s.cTx.textContent='TIỀN: $'+s.cash;var q=s.scr(to.x,180);burst(s.gF,q.x,q.y,10,['#7dff8a','#2fbf5b','#ffcf33'],{rect:true,r:5,sp:60})}
+    b.setAttribute('opacity',good?1:.45);return anim(b,[{transform:'translateY(40px) scale(1,.2)',opacity:0},{transform:'translateY(0) scale(1,1)',opacity:good?1:.45}],{duration:450,easing:'cubic-bezier(.2,1.6,.4,1)'})})},
+  wrong:function(){var s=this,q=this.scr(this.px+40,this.py-60);SFX.lose();for(var k=0;k<4;k++)burst(this.gF,q.x,q.y-k*8,2,['#8a8a8a','#5a5a5a'],{r:12,sp:30,a0:-Math.PI/2,spread:1,dur:1100});this.shake();return this.blink()},
+  win:function(){var s=this,h=$('#hq',this.box);SFX.build();return anim(h,[{opacity:.25,transform:'translate('+(this.P[this.N].x+130)+'px,240px) scale(1,.3)'},{opacity:1,transform:'translate('+(this.P[this.N].x+130)+'px,240px) scale(1,1)'}],{duration:800,fill:'forwards',easing:'cubic-bezier(.2,1.5,.4,1)'}).then(function(){h.setAttribute('opacity',1);var q=s.scr(s.P[s.N].x+130,60);for(var k=0;k<6;k++)setTimeout(function(){SFX.coin();burst(s.gF,q.x,q.y,10,['#7dff8a','#2fbf5b','#ffcf33'],{rect:true,r:6,sp:110,grav:80,dur:1200})},k*150)})}
+ }
+};
 
 /* ======================= SCENE ======================= */
 function Scene(box,L){
@@ -714,6 +804,7 @@ function Scene(box,L){
     if(th==='chase')y=245;
     if(th==='rescue')y=250-i*42;
     if(th==='coins')y=228;
+    if(TH[th])y=TH[th].y(i);
     this.P.push({x:110+i*S,y:y});}
   this.camX=0;this.camY=0;this.gap=4;
   box.innerHTML='<svg viewBox="0 0 640 300" preserveAspectRatio="xMidYMid slice"><defs>'+faceDefs()+this.defs()+'</defs><g class="bg">'+this.bg()+'</g><g class="par"></g><g class="world"></g><g class="hud"></g><g class="fx"></g></svg>';
@@ -725,12 +816,13 @@ function Scene(box,L){
   if(th==='space'){this.mon=el('g',{transform:'translate(548,118)'},this.gH);this.mon.innerHTML=monster(this.skin);
     var hb=el('g',{transform:'translate(490,18)'},this.gH);el('rect',{width:120,height:14,rx:7,fill:'rgba(0,0,0,.5)',stroke:'#fff','stroke-width':2},hb);this.hp=el('rect',{x:2,y:2,width:116,height:10,rx:5,fill:'#ff4d6d'},hb);
     var tx=el('text',{x:60,y:-4,'text-anchor':'middle','font-size':12,'font-weight':900,fill:'#fff','font-family':'Nunito'},hb);tx.textContent='QUÁI VẬT';}
+  if(TH[th]&&TH[th].init)TH[th].init.call(this);
   this.px=this.P[0].x;this.py=this.P[0].y;this.place();this.cam(true);
 }
 Scene.prototype.defs=function(){return '<linearGradient id="gW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+this.c('w1')+'"/><stop offset="1" stop-color="'+this.c('w2')+'"/></linearGradient>'+
  '<linearGradient id="gS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+this.c('s1')+'"/><stop offset="1" stop-color="'+this.c('s2')+'"/></linearGradient>'+
  '<radialGradient id="gG"><stop offset="0" stop-color="#fff6a8"/><stop offset="1" stop-color="#fff6a8" stop-opacity="0"/></radialGradient>'};
-Scene.prototype.c=function(k){var th=this.th,sk=this.skin;var P={
+Scene.prototype.c=function(k){var th=this.th,sk=this.skin;if(TH[th])return TH[th].col[k]||'#888';var P={
  river:{s1:'#7fd3ff',s2:'#d8f4ff',w1:'#2aa7e0',w2:'#0b5fa0',st:'#8c96a8',st2:'#b8c1cf',bank:'#57b346',bank2:'#7a5534'},
  ice:{s1:'#0c1440',s2:'#2b4a8a',w1:'#1c3f7a',w2:'#0a1d40',st:'#a9d8f5',st2:'#effaff',bank:'#e8f6ff',bank2:'#9cc6e6'},
  lava:{s1:'#2a0a10',s2:'#7a1d12',w1:'#ff8a1f',w2:'#c7200f',st:'#2b2326',st2:'#4b3f43',bank:'#3a2e2f',bank2:'#1f1718'},
@@ -739,7 +831,7 @@ Scene.prototype.c=function(k){var th=this.th,sk=this.skin;var P={
  chase:{s1:'#6b7cff',s2:'#a9b4ff'}, jungle:{s1:'#1d5b3a',s2:'#4aa25a'},
  rescue:{s1:'#3a2a7a',s2:'#ff9a6b'}};
  var p=P[sk]||P[th]||P.river;if(th==='lava')p=P.lava;return p[k]||'#888'};
-Scene.prototype.bg=function(){var th=this.th,sk=this.skin,r=rng(7),s='<rect width="640" height="300" fill="url(#gS)"/>',i;
+Scene.prototype.bg=function(){var th=this.th,sk=this.skin,r=rng(7),s='<rect width="640" height="300" fill="url(#gS)"/>',i;if(TH[th])return s+TH[th].bg.call(this);
  if(th==='space'||sk==='ice'){for(i=0;i<70;i++)s+='<circle cx="'+(r()*640).toFixed(0)+'" cy="'+(r()*300).toFixed(0)+'" r="'+(r()*1.6+.4).toFixed(1)+'" fill="#fff" class="'+(r()<.4?'twinkle':'')+'" style="animation-delay:'+(r()*2).toFixed(1)+'s"/>'}
  if(th==='space'){s+=sk==='nebula'?'<circle cx="120" cy="80" r="120" fill="#16c7b0" opacity=".12"/><circle cx="420" cy="60" r="90" fill="#ff5d73" opacity=".1"/><circle cx="90" cy="70" r="26" fill="#ffcf33"/><circle cx="82" cy="62" r="7" fill="#e0a100" opacity=".6"/>':'<circle cx="110" cy="70" r="34" fill="#ff8a5c"/><ellipse cx="110" cy="70" rx="58" ry="10" fill="none" stroke="#ffd0a8" stroke-width="4" transform="rotate(-18 110 70)"/><circle cx="330" cy="40" r="10" fill="#7fd3ff" opacity=".7"/>'}
  if(sk==='ice')s+='<path d="M0 60 Q160 20 320 70 T640 50" stroke="#2fffb0" stroke-width="26" fill="none" opacity=".18"/><path d="M0 90 Q200 50 380 100 T640 80" stroke="#9b6bff" stroke-width="18" fill="none" opacity=".16"/>';
@@ -748,18 +840,19 @@ Scene.prototype.bg=function(){var th=this.th,sk=this.skin,r=rng(7),s='<rect widt
  if(th==='coins')s+='<circle cx="540" cy="70" r="34" fill="#fff3a0"/><circle cx="540" cy="70" r="50" fill="#fff3a0" opacity=".25"/>';
  if(th==='rescue'){for(i=0;i<30;i++)s+='<circle cx="'+(r()*640).toFixed(0)+'" cy="'+(r()*140).toFixed(0)+'" r="1.2" fill="#fff" class="twinkle" style="animation-delay:'+(r()*2).toFixed(1)+'s"/>';s+='<circle cx="90" cy="60" r="22" fill="#fff7d6"/><circle cx="100" cy="54" r="20" fill="#3a2a7a"/>'}
  return s};
-Scene.prototype.parallax=function(){var th=this.th,sk=this.skin,s='',i,r=rng(3),W=this.P[this.N].x*.4+900;
+Scene.prototype.parallax=function(){var th=this.th,sk=this.skin,s='',i,r=rng(3),W=this.P[this.N].x*.4+900;if(TH[th])return TH[th].par.call(this,W);
  if(th==='river'&&!sk){for(i=0;i<W;i+=220)s+='<path d="M'+i+' 230 Q'+(i+110)+' '+(140+r()*30)+' '+(i+220)+' 230Z" fill="#8fd48a"/>'}
  if(sk==='ice'){for(i=0;i<W;i+=260)s+='<path d="M'+i+' 232 L'+(i+90)+' '+(130+r()*40)+' L'+(i+180)+' 232Z" fill="#33508a"/><path d="M'+(i+70)+' 155 L'+(i+90)+' '+(140)+' L'+(i+110)+' 158Z" fill="#dff3ff" opacity=".7"/>'}
  if(th==='lava'){for(i=0;i<W;i+=420)s+='<path d="M'+i+' 232 L'+(i+150)+' 110 L'+(i+190)+' 110 L'+(i+340)+' 232Z" fill="#3a1414"/><path d="M'+(i+150)+' 112 L'+(i+190)+' 112 L'+(i+180)+' 130 L'+(i+160)+' 130Z" fill="#ff7a1f" class="glow"/><circle cx="'+(i+170)+'" cy="88" r="16" fill="#555" opacity=".5" class="bobS"/>'}
  if(th==='space'){for(i=0;i<W;i+=300)s+='<circle cx="'+(i+r()*200)+'" cy="'+(60+r()*120)+'" r="'+(4+r()*8)+'" fill="#8a7fb8" opacity=".5"/>'}
  if(th==='coins'){for(i=0;i<W;i+=360){s+='<ellipse cx="'+(i+150)+'" cy="214" rx="90" ry="16" fill="#f3d58a"/><path d="M'+(i+150)+' 212 q-6 -50 6 -80" stroke="#7a5534" stroke-width="7" fill="none"/><path d="M'+(i+156)+' 132 q-30 -6 -44 14 M'+(i+156)+' 132 q30 -10 44 12 M'+(i+156)+' 132 q-14 -24 -36 -24 M'+(i+156)+' 132 q16 -26 38 -20" stroke="#2fa84f" stroke-width="9" fill="none" stroke-linecap="round"/>'}
    if(sk==='pirate')s+='<g transform="translate(260,150)"><path d="M0 40h120l-15 25h-90z" fill="#3a2418"/><path d="M58 40V-30M58 -28l40 30H58zM58 -24l-36 28h36z" stroke="#3a2418" stroke-width="5" fill="#f3e6c8"/><circle cx="72" cy="-6" r="7" fill="#222"/></g>';}
- if(th==='chase'){if(sk==='jungle'){for(i=0;i<W;i+=140)s+='<rect x="'+i+'" y="0" width="22" height="260" fill="#163f26"/><circle cx="'+(i+11)+'" cy="30" r="60" fill="#2a7a3e" opacity=".8"/><path d="M'+(i+60)+' 0 q10 60 -4 120" stroke="#3f9a4a" stroke-width="4" fill="none"/>'}
+ if(th==='chase'){if(sk==='prison'){for(i=0;i<W;i+=120)s+='<rect x="'+i+'" y="0" width="118" height="245" fill="'+((i/120)%2?'#9aa0b4':'#a7adc0')+'"/><rect x="'+(i+40)+'" y="40" width="40" height="40" fill="#2c3350"/><path d="M'+(i+50)+' 40v40M'+(i+60)+' 40v40M'+(i+70)+' 40v40" stroke="#8a90a6" stroke-width="3"/>'}
+   else if(sk==='jungle'){for(i=0;i<W;i+=140)s+='<rect x="'+i+'" y="0" width="22" height="260" fill="#163f26"/><circle cx="'+(i+11)+'" cy="30" r="60" fill="#2a7a3e" opacity=".8"/><path d="M'+(i+60)+' 0 q10 60 -4 120" stroke="#3f9a4a" stroke-width="4" fill="none"/>'}
    else{for(i=0;i<W;i+=80)s+='<rect x="'+i+'" y="0" width="78" height="40" fill="#5563e6"/><rect x="'+(i+40)+'" y="42" width="78" height="40" fill="#5f6df0"/><rect x="'+i+'" y="84" width="78" height="40" fill="#5563e6"/><rect x="'+(i+40)+'" y="126" width="78" height="40" fill="#5f6df0"/>'}}
  if(th==='rescue'){for(i=-200;i<W;i+=240)s+='<path d="M'+i+' 400 L'+(i+120)+' '+(200+r()*60)+' L'+(i+240)+' 400Z" fill="#2a1f5a"/>'}
  return s};
-Scene.prototype.world=function(){var th=this.th,sk=this.skin,P=this.P,N=this.N,s='',i,r=rng(11),x,y,first=P[0],last=P[N],W=last.x+700;
+Scene.prototype.world=function(){if(TH[this.th])return TH[this.th].world.call(this);var th=this.th,sk=this.skin,P=this.P,N=this.N,s='',i,r=rng(11),x,y,first=P[0],last=P[N],W=last.x+700;
  if(th==='river'||th==='lava'){
    s+='<rect x="-400" y="240" width="'+(W+400)+'" height="200" fill="url(#gW)"/>';
    s+='<g class="waveA"><path d="'+waves(-400,W,246,14)+'" stroke="'+(th==='lava'?'#ffd35a':'#ffffff')+'" stroke-width="3" fill="none" opacity=".5"/></g><g class="waveB"><path d="'+waves(-400,W,270,22)+'" stroke="'+(th==='lava'?'#ffb02e':'#bfe9ff')+'" stroke-width="3" fill="none" opacity=".35"/></g>';
@@ -788,11 +881,12 @@ Scene.prototype.world=function(){var th=this.th,sk=this.skin,P=this.P,N=this.N,s
    s+='<g id="chest" transform="translate('+(last.x+110)+',228)"><circle cx="0" cy="-30" r="70" fill="url(#gG)" opacity="0" id="chestGlow"/><rect x="-40" y="-40" width="80" height="40" rx="4" fill="#8a4b1f" stroke="#4a2408" stroke-width="4"/><rect x="-6" y="-30" width="12" height="14" fill="#ffcf33"/><g id="lid"><path d="M-42 -40 q0 -30 42 -30 q42 0 42 30z" fill="#a85a26" stroke="#4a2408" stroke-width="4"/></g></g>';
  }
  if(th==='chase'){
-   var fl=sk==='jungle'?['#5a3d22','#4a321b']:['#d9d9e8','#c4c4d6'];
+   var fl=sk==='jungle'?['#5a3d22','#4a321b']:sk==='prison'?['#5b6273','#4f5566']:['#d9d9e8','#c4c4d6'];
    s+='<rect x="-400" y="245" width="'+(W+400)+'" height="200" fill="'+fl[0]+'"/>';
    for(i=-400;i<W;i+=40)s+='<rect x="'+i+'" y="245" width="40" height="40" fill="'+((i/40)%2?fl[1]:fl[0])+'"/>';
    for(i=0;i<N;i++){x=P[i].x+this.S/2;
-     if(sk==='jungle')s+='<g id="dr'+i+'"><rect x="'+(x-14)+'" y="105" width="28" height="140" fill="#2f7a35"/><circle cx="'+x+'" cy="120" r="22" fill="#3f9a4a"/><circle cx="'+(x-6)+'" cy="170" r="20" fill="#358a40"/><circle cx="'+(x+8)+'" cy="215" r="22" fill="#3f9a4a"/><circle cx="'+(x+4)+'" cy="150" r="4" fill="#ff5d73"/></g>';
+     if(sk==='prison')s+='<g id="dr'+i+'"><rect x="'+(x-36)+'" y="95" width="72" height="150" fill="none" stroke="#4a4f63" stroke-width="8"/>'+[0,1,2,3,4].map(function(k){return '<rect x="'+(x-28+k*13)+'" y="99" width="5" height="142" fill="#8a90a6"/>'}).join('')+'<rect x="'+(x-32)+'" y="165" width="64" height="6" fill="#8a90a6"/><rect x="'+(x+18)+'" y="160" width="10" height="16" fill="#ffcf33"/></g>';
+     else if(sk==='jungle')s+='<g id="dr'+i+'"><rect x="'+(x-14)+'" y="105" width="28" height="140" fill="#2f7a35"/><circle cx="'+x+'" cy="120" r="22" fill="#3f9a4a"/><circle cx="'+(x-6)+'" cy="170" r="20" fill="#358a40"/><circle cx="'+(x+8)+'" cy="215" r="22" fill="#3f9a4a"/><circle cx="'+(x+4)+'" cy="150" r="4" fill="#ff5d73"/></g>';
      else s+='<g id="dr'+i+'"><rect x="'+(x-34)+'" y="95" width="68" height="150" fill="#3a2a6b"/><rect x="'+(x-28)+'" y="101" width="56" height="144" fill="#a0612e"/><rect x="'+(x-22)+'" y="110" width="44" height="54" fill="#8a4f22"/><rect x="'+(x-22)+'" y="172" width="44" height="64" fill="#8a4f22"/><circle cx="'+(x+18)+'" cy="175" r="5" fill="#ffcf33"/><rect x="'+(x-12)+'" y="80" width="24" height="12" fill="#222"/><text x="'+x+'" y="90" font-size="10" text-anchor="middle" fill="#2fbf5b" font-weight="900" font-family="Nunito">'+(i+1)+'</text></g>';}
    s+='<g transform="translate('+(last.x+90)+',245)"><rect x="-44" y="-170" width="88" height="170" fill="#1e7a3a"/><rect x="-36" y="-162" width="72" height="162" fill="#2fbf5b" class="glow"/><rect x="-34" y="-200" width="68" height="24" rx="4" fill="#111"/><text x="0" y="-182" font-size="16" text-anchor="middle" fill="#2fff7a" font-weight="900" font-family="Nunito">EXIT</text></g>';
  }
@@ -802,7 +896,7 @@ Scene.prototype.world=function(){var th=this.th,sk=this.skin,P=this.P,N=this.N,s
    s+='<path d="M'+(last.x-60)+' '+last.y+' h300 v14 h-300z" fill="#463b63"/>';
    for(i=-1;i<10;i++)s+='<rect x="'+(last.x-60+i*30)+'" y="'+(last.y-18)+'" width="18" height="18" fill="#463b63"/>';
    for(i=0;i<N;i++){x=P[i].x;y=P[i].y;s+='<g id="st'+i+'"><rect x="'+(x-40)+'" y="'+y+'" width="80" height="24" rx="3" fill="#8a7fb0" stroke="#3a2f5a" stroke-width="3"/><path d="M'+(x-40)+' '+(y+12)+' h80 M'+(x-10)+' '+y+' v12 M'+(x+15)+' '+(y+12)+' v12" stroke="#3a2f5a" stroke-width="2"/></g>'}
-   s+='<g id="cage" transform="translate('+(last.x+120)+','+last.y+')"><g id="tamS" transform="translate(0,0)">'+tam()+'</g><g id="bars"><rect x="-40" y="-100" width="80" height="8" rx="3" fill="#555"/>'+[0,1,2,3,4,5].map(function(k){return '<rect x="'+(-38+k*15)+'" y="-96" width="5" height="96" fill="#666"/>'}).join('')+'<path d="M-44 -100 q44 -40 88 0" stroke="#555" stroke-width="6" fill="none"/><circle cx="0" cy="-134" r="6" fill="none" stroke="#555" stroke-width="4"/></g><g class="bobS"><rect x="-58" y="-170" width="116" height="26" rx="13" fill="#fff"/><text x="0" y="-152" font-size="13" text-anchor="middle" font-weight="900" fill="#e01f34" font-family="Nunito">CỨU EM VỚI!</text></g></g>';
+   s+='<g id="cage" transform="translate('+(last.x+120)+','+last.y+')"><g id="tamS" transform="translate(0,0)">'+tam()+'</g><g id="bars"><rect x="-40" y="-100" width="80" height="8" rx="3" fill="#555"/>'+[0,1,2,3,4,5].map(function(k){return '<rect x="'+(-38+k*15)+'" y="-96" width="5" height="96" fill="#666"/>'}).join('')+'<path d="M-44 -100 q44 -40 88 0" stroke="#555" stroke-width="6" fill="none"/><circle cx="0" cy="-134" r="6" fill="none" stroke="#555" stroke-width="4"/></g><g class="bobS" id="sos"><rect x="-58" y="-170" width="116" height="26" rx="13" fill="#fff"/><text x="0" y="-152" font-size="13" text-anchor="middle" font-weight="900" fill="#e01f34" font-family="Nunito">CỨU EM VỚI!</text></g></g>';
  }
  return s};
 function waves(x0,x1,y,a){var s='M'+x0+' '+y;for(var x=x0;x<x1+160;x+=40)s+=' q10 -'+(a/3)+' 20 0 t20 0';return s}
@@ -818,15 +912,17 @@ Scene.prototype.cam=function(snap){var tx=this.th==='chase'?this.px-330:Math.max
   this.gP.setAttribute('transform','translate('+(-this.camX*.35).toFixed(1)+','+(-this.camY*.35).toFixed(1)+')')};
 Scene.prototype.loopCam=function(ms){var s=this,t0=performance.now();return new Promise(function(res){(function f(){s.cam();if(performance.now()-t0<ms)requestAnimationFrame(f);else res()})()})};
 Scene.prototype.jump=function(x1,y1,h,ms){var s=this,x0=this.px,y0=this.py;h=h==null?70:h;SFX.jump();
-  return tween(ms||620,function(t){s.px=x0+(x1-x0)*t;s.py=y0+(y1-y0)*t-4*h*t*(1-t);s.place();s.cam()},function(t){return t}).then(function(){SFX.land();return anim(s.plb,[{transform:'scale(1.15,.85)'},{transform:'scale(1,1)'}],{duration:200})}).then(function(){return s.loopCam(250)})};
+  return tween(ms||620,function(t){s.px=x0+(x1-x0)*t;s.py=y0+(y1-y0)*t-4*h*t*(1-t);var u=Math.sin(Math.PI*t);s.pose(150*u,-150*u,-28*u,28*u);s.place();s.cam()},function(t){return t}).then(function(){s.pose(0,0,0,0);SFX.land();return anim(s.plb,[{transform:'scale(1.15,.85)'},{transform:'scale(1,1)'}],{duration:200})}).then(function(){return s.loopCam(250)})};
 Scene.prototype.run=function(x1,ms){var s=this,x0=this.px,step=0;
-  return tween(ms||900,function(t){s.px=x0+(x1-x0)*t;s.py=s.P[0].y-Math.abs(Math.sin(t*Math.PI*6))*6;var k=Math.floor(t*12);if(k!==step){step=k;SFX.step()}s.place();s.cam()},function(t){return t}).then(function(){return s.loopCam(250)})};
+  return tween(ms||900,function(t){s.px=x0+(x1-x0)*t;s.py=s.P[0].y-Math.abs(Math.sin(t*Math.PI*6))*6;var w=Math.sin(t*Math.PI*12);s.pose(40*w,40*w,-30*w,30*w);var k=Math.floor(t*12);if(k!==step){step=k;SFX.step()}s.place();s.cam()},function(t){return t}).then(function(){s.pose(0,0,0,0);return s.loopCam(250)})};
+Scene.prototype.pose=function(a,b,c,d){if(!this.pz)this.pz=['aL','aR','lL','lR'].map(function(k){return $('.'+k,this.pl)},this);var P=[[-23.5,-59],[23.5,-59],[-7,-30],[7,-30]],v=[a,b,c,d];for(var i=0;i<4;i++)if(this.pz[i])this.pz[i].setAttribute('transform','rotate('+(+v[i]||0).toFixed(1)+' '+P[i][0]+' '+P[i][1]+')')};
+Scene.prototype.dance=function(ms){var s=this,y0=this.py;return tween(ms||1400,function(t){var a=Math.sin(t*Math.PI*8),b=Math.sin(t*Math.PI*8+Math.PI);s.pose(80+70*a,-80-70*b,10*a,10*b);s.py=y0-Math.abs(Math.sin(t*Math.PI*4))*14;s.place()},function(t){return t}).then(function(){s.py=y0;s.pose(0,0,0,0);s.place()})};
 Scene.prototype.blink=function(){return anim(this.pl,[{opacity:1},{opacity:.15},{opacity:1}],{duration:180,iterations:3})};
 Scene.prototype.shake=function(){var b=this.box;b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake')};
 Scene.prototype.scr=function(x,y){return {x:x-this.camX,y:y-this.camY}};
 
 /* --- correct move: from step i to i+1 --- */
-Scene.prototype.move=function(i,good){var s=this,P=this.P,th=this.th,to=P[i+1];
+Scene.prototype.move=function(i,good){var s=this,P=this.P,th=this.th,to=P[i+1];if(TH[th]&&TH[th].move)return TH[th].move.call(this,i,good);
   if(th==='chase'){var d=$('#dr'+i,this.box);SFX.door();var pr=anim(d,[{transform:'translateY(0)'},{transform:'translateY(-160px)',opacity:.2}],{duration:450,fill:'forwards',easing:'ease-in'});
     return pr.then(function(){return s.run(to.x,850)})}
   var p=this.jump(to.x,to.y,th==='rescue'?60:70);
@@ -840,14 +936,14 @@ Scene.prototype.laser=function(){var s=this,a=this.scr(this.px+20,this.py-45),m=
     s.hits=(s.hits||0)+1;s.hp.setAttribute('width',Math.max(0,116*(1-s.hits/s.N)));ln.remove();ln2.remove()})};
 
 /* --- wrong animation at step i --- */
-Scene.prototype.wrong=function(i,hearts){var s=this,th=this.th,P=this.P,a=P[i],b=P[i+1];
+Scene.prototype.wrong=function(i,hearts){var s=this,th=this.th,P=this.P,a=P[i],b=P[i+1];if(TH[th])return TH[th].wrong.call(this,i,hearts);
   if(th==='river'||th==='lava'){var mx=(a.x+b.x)/2,x0=this.px,y0=this.py;SFX.jump();
     return tween(450,function(t){s.px=x0+(mx-x0)*t;s.py=y0+(232-y0)*t-4*55*t*(1-t);s.place();s.cam()},function(t){return t}).then(function(){
       if(th==='lava'){SFX.sizzle()}else if(s.skin==='ice'){SFX.crack();setTimeout(SFX.splash,120)}else SFX.splash();
       var col=th==='lava'?['#ffcf33','#ff7a1f','#ff3b1f','#555']:['#ffffff','#bfe9ff','#7fd3ff'];
       burst(s.gW,mx,250,18,col,{sp:70,a0:Math.PI,spread:Math.PI,grav:-10});
       if(th==='lava')for(var k=0;k<5;k++)burst(s.gW,mx,230-k*10,1,['#777'],{r:10,sp:20,a0:-Math.PI/2,spread:.6,dur:1200});
-      return tween(380,function(t){s.py=232+t*70;s.pl.style.opacity=1-t;s.place()})}).then(function(){return sleep(250)}).then(function(){s.px=a.x;s.py=a.y;s.pl.style.opacity=1;s.place();return s.blink()})}
+      return tween(380,function(t){s.py=232+t*70;s.pl.style.opacity=1-t;var f=Math.sin(t*40);s.pose(160+25*f,-160+25*f,-20*f,20*f);s.place()})}).then(function(){return sleep(250)}).then(function(){s.px=a.x;s.py=a.y;s.pl.style.opacity=1;s.pose(0,0,0,0);s.place();return s.blink()})}
   if(th==='space'){var m={x:530,y:120},p=this.scr(this.px,this.py-50);SFX.fire();
     var fb=el('g',{},this.gF);el('circle',{r:16,fill:'#ff7a1f'},fb);el('circle',{r:9,fill:'#ffe08a'},fb);
     return tween(420,function(t){var x=m.x+(p.x-m.x)*t,y=m.y+(p.y-m.y)*t-Math.sin(t*Math.PI)*30;fb.setAttribute('transform','translate('+x+','+y+')')},function(t){return t}).then(function(){fb.remove();SFX.boom();burst(s.gF,p.x,p.y,16,['#ff7a1f','#ffcf33','#fff'],{sp:55});s.shake();return s.blink()})}
@@ -871,11 +967,12 @@ Scene.prototype.win=function(){var s=this,th=this.th,last=this.P[this.N];
   else if(th==='coins')p=this.run2(last.x+60).then(function(){var lid=$('#lid',s.box);SFX.door();var cg=$('#chestGlow',s.box);cg.setAttribute('opacity',1);cg.classList.add('glow');var q=s.scr(last.x+110,200);
     return anim(lid,[{transform:'translate(0,0) rotate(0)'},{transform:'translate(-30px,-30px) rotate(-35deg)'}],{duration:500,fill:'forwards'}).then(function(){for(var k=0;k<6;k++)setTimeout(function(){SFX.coin();burst(s.gF,q.x,q.y,10,['#ffcf33','#fff3a0','#ffa500'],{sp:90,a0:-Math.PI,spread:Math.PI,dur:1000})},k*140)})});
   else if(th==='chase')p=this.run(last.x+90,700).then(function(){SFX.door();return anim(s.pl,[{opacity:1},{opacity:0}],{duration:400,fill:'forwards'})});
-  else if(th==='rescue')p=this.jump(last.x+60,last.y,50).then(function(){var b=$('#bars',s.box);SFX.door();return anim(b,[{transform:'translateY(0)'},{transform:'translateY(-140px)',opacity:0}],{duration:700,fill:'forwards',easing:'ease-in'})}).then(function(){SFX.heart();var t=$('#tamS',s.box);
+  else if(TH[th])p=TH[th].win.call(this);
+  else if(th==='rescue')p=this.jump(last.x+60,last.y,50).then(function(){var b=$('#bars',s.box),so=$('#sos',s.box);if(so)so.style.display='none';SFX.door();return anim(b,[{transform:'translateY(0)'},{transform:'translateY(-140px)',opacity:0}],{duration:700,fill:'forwards',easing:'ease-in'})}).then(function(){SFX.heart();var t=$('#tamS',s.box);
     for(var k=0;k<6;k++)setTimeout(function(){var q=s.scr(last.x+90,last.y-90);heartFx(s.gF,q.x+(Math.random()*80-40),q.y)},k*200);
-    return anim(t,[{transform:'translate(0,0)'},{transform:'translate(-15px,-40px)'},{transform:'translate(-30px,0)'}],{duration:600,fill:'forwards'})});
+    var ta=$('.tA',t);if(ta)anim(ta,[{transform:'translateY(0)'},{transform:'translateY(-14px)'},{transform:'translateY(0)'}],{duration:350,iterations:4});return anim(t,[{transform:'translate(0,0)'},{transform:'translate(6px,-34px)'},{transform:'translate(12px,0)'}],{duration:600,fill:'forwards'})});
   else p=Promise.resolve();
-  return p.then(function(){SFX.win();conf();return sleep(1400)})};
+  return p.then(function(){SFX.win();conf();if(th==='space'||th==='chase')return sleep(1400);return s.dance(1400)})};
 Scene.prototype.run2=function(x){return this.jump(x,this.P[this.N].y,50)};
 function heartFx(g,x,y){var e=el('path',{d:'M0 6 C-10 -2 -8 -12 0 -6 C8 -12 10 -2 0 6Z',fill:'#ff4d6d'},g);anim(e,[{transform:'translate('+x+'px,'+y+'px) scale(1.4)',opacity:1},{transform:'translate('+x+'px,'+(y-70)+'px) scale(2)',opacity:0}],{duration:1300}).then(function(){e.remove()})}
 
@@ -885,7 +982,11 @@ function thumb(L){var th=L.theme,sk=L.skin||'',s='<svg viewBox="0 0 60 60">';
    s+='<rect width="60" height="60" fill="'+w[0]+'"/><rect y="34" width="60" height="26" fill="'+w[1]+'"/><ellipse cx="14" cy="38" rx="10" ry="4" fill="'+w[2]+'"/><ellipse cx="34" cy="40" rx="9" ry="4" fill="'+w[2]+'"/><ellipse cx="52" cy="38" rx="8" ry="4" fill="'+w[2]+'"/><circle cx="14" cy="24" r="7" fill="#ff7a2f"/>'}
  if(th==='space')s+='<rect width="60" height="60" fill="'+(sk?'#03141f':'#160a36')+'"/><circle cx="10" cy="10" r="1" fill="#fff"/><circle cx="50" cy="8" r="1.2" fill="#fff"/><circle cx="20" cy="50" r="1" fill="#fff"/><path d="M14 46 C10 22 20 14 30 14 C40 14 50 22 46 46 C40 40 36 48 30 42 C24 48 20 40 14 46Z" fill="'+(sk?'#16c7b0':'#9b4dff')+'"/><circle cx="30" cy="28" r="8" fill="#fff"/><circle cx="28" cy="28" r="4" fill="#1b1740"/>';
  if(th==='coins')s+='<rect width="60" height="60" fill="'+(sk?'#ff8a5c':'#6fd6ff')+'"/><rect y="40" width="60" height="20" fill="#f3d58a"/><circle cx="20" cy="26" r="9" fill="#ffcf33" stroke="#c98a00" stroke-width="2"/><circle cx="40" cy="20" r="7" fill="#ffcf33" stroke="#c98a00" stroke-width="2"/><rect x="30" y="38" width="22" height="12" fill="#8a4b1f"/>';
- if(th==='chase')s+='<rect width="60" height="60" fill="'+(sk?'#1d5b3a':'#5563e6')+'"/><rect y="46" width="60" height="14" fill="'+(sk?'#5a3d22':'#d9d9e8')+'"/><rect x="34" y="16" width="20" height="30" fill="#a0612e"/><rect x="6" y="14" width="18" height="18" fill="'+(sk?'#4d7a33':'#5a4a9a')+'"/><rect x="9" y="19" width="4" height="3" fill="#ff2a2a"/><rect x="17" y="19" width="4" height="3" fill="#ff2a2a"/><rect x="4" y="32" width="22" height="14" fill="'+(sk?'#2f5d2a':'#3b2d6b')+'"/>';
+ if(th==='chase'&&sk==='prison')s+='<rect width="60" height="60" fill="#a7adc0"/><rect y="46" width="60" height="14" fill="#5b6273"/><rect x="32" y="14" width="24" height="32" fill="none" stroke="#4a4f63" stroke-width="3"/><path d="M38 14v32M44 14v32M50 14v32" stroke="#8a90a6" stroke-width="2"/><rect x="6" y="14" width="18" height="18" fill="#c9925f"/><rect x="5" y="11" width="20" height="5" fill="#141a33"/><rect x="4" y="32" width="22" height="14" fill="#2c4a9a"/>';
+ else if(th==='chase')s+='<rect width="60" height="60" fill="'+(sk?'#1d5b3a':'#5563e6')+'"/><rect y="46" width="60" height="14" fill="'+(sk?'#5a3d22':'#d9d9e8')+'"/><rect x="34" y="16" width="20" height="30" fill="#a0612e"/><rect x="6" y="14" width="18" height="18" fill="'+(sk?'#4d7a33':'#5a4a9a')+'"/><rect x="9" y="19" width="4" height="3" fill="#ff2a2a"/><rect x="17" y="19" width="4" height="3" fill="#ff2a2a"/><rect x="4" y="32" width="22" height="14" fill="'+(sk?'#2f5d2a':'#3b2d6b')+'"/>';
+ if(th==='obby')s+='<rect width="60" height="60" fill="#8a6cff"/><rect x="4" y="40" width="14" height="6" fill="#ff4d6d"/><rect x="23" y="30" width="14" height="6" fill="#3d7bff"/><rect x="42" y="22" width="14" height="6" fill="#ffcf33"/><rect x="8" y="28" width="7" height="12" fill="#ff7a2f"/><rect x="7" y="20" width="9" height="8" fill="#f1c09a"/><rect x="20" y="52" width="30" height="4" fill="#ff1f3d"/>';
+ if(th==='disaster')s+='<rect width="60" height="60" fill="#3a4160"/><rect y="44" width="60" height="16" fill="#7a5534"/><rect y="44" width="60" height="4" fill="#4caf50"/><polyline points="36,0 28,18 38,22 30,40" stroke="#fffbd0" stroke-width="3" fill="none"/><rect x="8" y="10" width="10" height="10" fill="#ff7a1f" transform="rotate(20 13 15)"/>';
+ if(th==='tycoon')s+='<rect width="60" height="60" fill="#8fd3ff"/><rect y="44" width="60" height="16" fill="#6cc46a"/><rect x="30" y="12" width="18" height="32" fill="#7a4dff"/><rect x="6" y="28" width="20" height="16" fill="#f3e2c4"/><path d="M4 28l12-10 12 10z" fill="#e8394f"/><text x="16" y="58" font-size="10" font-weight="900" fill="#11692f" font-family="Nunito">$</text>';
  if(th==='rescue')s+='<rect width="60" height="60" fill="#3a2a7a"/><rect x="34" y="20" width="22" height="40" fill="#5b4e7a"/><rect x="36" y="6" width="18" height="14" fill="none" stroke="#999" stroke-width="2"/><circle cx="45" cy="13" r="4" fill="#e01f34"/><rect x="6" y="48" width="12" height="5" fill="#8a7fb0"/><rect x="16" y="38" width="12" height="5" fill="#8a7fb0"/><rect x="26" y="28" width="10" height="5" fill="#8a7fb0"/>';
  return s+'</svg>'}
 
@@ -897,7 +998,7 @@ function showMap(){
   BGM.stop();
   var total=0,cur=-1;LV.forEach(function(L,i){total+=best[L.id]||0;if(cur<0&&!done[L.id])cur=i});
   var last=LV[LV.length-1],freed=!!done[last.id];
-  var h='<div class="wrap"><div class="mapHead"><img class="face" src="'+IMG.dat2+'" alt="Quang Đạt"><div><h1>Hành trình của Quang Đạt</h1><p>'+esc(CFG.SUBJECT)+'</p></div><span class="sp"></span><div class="tools">'+
+  var h='<div class="wrap"><div class="mapHead"><span class="face blk">'+avatar('dat',62)+'</span><div><h1>Hành trình của Quang Đạt</h1><p>'+esc(CFG.SUBJECT)+'</p></div><span class="sp"></span><div class="tools">'+
    '<a class="iconbtn" href="index.html" title="Chọn môn khác">'+IC.home+'</a><button class="iconbtn '+(musOn?'':'off')+'" id="tMus" title="Nhạc nền">'+IC.music+'</button><button class="iconbtn '+(sfxOn?'':'off')+'" id="tSfx" title="Âm thanh">'+IC.sound+'</button></div></div>'+
    '<div class="story">Quỳnh Tâm đã bị nhốt trên đỉnh tháp cao! Đạt phải vượt qua <b>'+LV.length+' thử thách</b> để đến được đích cuối cùng. Câu nào khó thì bấm <b>"Chú Độ gợi ý cách làm bài"</b> nhé. <span class="starTotal">'+IC.star(true)+total+' / '+(LV.length*3)+'</span></div><div class="path">';
   LV.forEach(function(L,i){var st=best[L.id]||0,n=plays[L.id]||0;
@@ -912,7 +1013,7 @@ function showMap(){
 function modal(html){var m=document.createElement('div');m.className='modal';m.innerHTML='<div class="mbox">'+html+'</div>';document.body.appendChild(m);return m}
 function toast(html,ms){var t=document.createElement('div');t.className='toast';t.innerHTML=html;document.body.appendChild(t);setTimeout(function(){t.remove()},ms||2600)}
 function intro(i){var L=LV[i];ac();
-  var m=modal('<div class="introFaces"><img src="'+IMG.dat+'">'+(L.theme==='rescue'?'<img src="'+IMG.tam+'">':'')+'</div><h2>'+esc(L.title)+'</h2><p class="lead">'+esc(L.sub)+' · '+L.qs.length+' câu</p><p style="font-weight:700;font-size:17px;line-height:1.5">'+esc(L.intro)+'</p>'+
+  var m=modal('<div class="introFaces">'+avatar('dat',84)+(L.theme==='rescue'?avatar('tam',70):'')+'</div><h2>'+esc(L.title)+'</h2><p class="lead">'+esc(L.sub)+' · '+L.qs.length+' câu</p><p style="font-weight:700;font-size:17px;line-height:1.5">'+esc(L.intro)+'</p>'+
    '<div class="fb info">'+IC.info+'<span>Mỗi câu được trả lời 2 lần. Đúng ngay lần đầu được <b>10 vàng</b>, lần hai được <b>5 vàng</b>. Bí quá thì bấm chú Độ!</span></div><div class="mbtns"><button class="btn ghost" id="mX">Để sau</button><button class="btn" id="mGo">Bắt đầu!</button></div>');
   $('#mX',m).onclick=function(){m.remove()};$('#mGo',m).onclick=function(){m.remove();SFX.click();play(i)}}
 
@@ -948,8 +1049,8 @@ function correctText(q){
 function renderQ(){
   var L=G.L,q=L.qs[G.qi],N=L.qs.length;
   G.q=q;G.tries=0;G.hint=0;G.ans=[];G.sel=null;G.pk=q.rows?q.rows.map(function(){return -1}):null;G.done=false;
-  G.entry={n:G.qi+1,q:stripP(fmt(q.q)),type:q.t,options:q.o?q.o.map(fmt):null,rows:q.rows?q.rows.map(function(r){return [fmt(r[0]),r[1]]}):null,correct:fmt(correctText(q)),answers:[],first:false,final:false,hints:0,hintTotal:(q.h||[]).length};
-  var h='<span class="qtag">Câu '+(G.qi+1)+' / '+N+'</span><div class="qtext">'+fmt(q.q)+(q.fig&&FIGS[q.fig]?FIGS[q.fig]:'')+'</div><div id="ans">';
+  G.entry={n:G.qi+1,q:(q.ctx?'<i>'+fmt(q.ctx)+'</i><br>':'')+stripP(fmt(q.q)),type:q.t,options:q.o?q.o.map(fmt):null,rows:q.rows?q.rows.map(function(r){return [fmt(r[0]),r[1]]}):null,correct:fmt(correctText(q)),answers:[],first:false,final:false,hints:0,hintTotal:(q.h||[]).length};
+  var h='<span class="qtag">Câu '+(G.qi+1)+' / '+N+'</span>'+(q.ctx?'<div class="ctx"><span>Đề bài chung</span>'+fmt(q.ctx)+'</div>':'')+'<div class="qtext">'+fmt(q.q)+(q.fig&&FIGS[q.fig]?FIGS[q.fig]:'')+'</div><div id="ans">';
   if(q.t==='mcq'){h+='<div class="opts">'+q.o.map(function(o,i){return '<button class="opt" data-i="'+i+'"><span class="L">'+letter(i)+'</span><span>'+fmt(o)+'</span></button>'}).join('')+'</div>'}
   else if(q.t==='pick'){h+='<div class="rows">'+q.rows.map(function(r,ri){return '<div class="prow" data-r="'+ri+'"><span class="lab">'+fmt(r[0])+'</span><span class="ch">'+r[1].map(function(c,ci){return '<button class="chip" data-r="'+ri+'" data-c="'+ci+'">'+esc(c)+'</button>'}).join('')+'</span></div>'}).join('')+'</div>'}
   else if(q.t==='in'){h+='<div class="inrow">'+(q.pre?'<span class="pre">'+esc(q.pre)+'</span>':'')+'<input class="inp" id="inp" inputmode="numeric" autocomplete="off" placeholder="Nhập đáp số">'+(q.unit?'<span class="unit">'+esc(q.unit)+'</span>':'')+'</div>'}
